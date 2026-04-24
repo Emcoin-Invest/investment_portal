@@ -304,3 +304,175 @@
 [2026-04-24T06:50:35.735Z] 
 [2026-04-24T06:50:35.735Z] 
 [2026-04-24T06:50:35.737Z] GET /?from_webdev=1 500 in 13ms (next.js: 4ms, application-code: 9ms)
+[2026-04-24T06:50:54.516Z] ⨯ ./src/app/globals.css:1033:8
+[2026-04-24T06:50:54.517Z] Parsing CSS source code failed
+[2026-04-24T06:50:54.518Z] [90m1031 |[0m   }
+[2026-04-24T06:50:54.518Z] [90m1032 |[0m }
+[2026-04-24T06:50:54.518Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:54.519Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:54.519Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:54.519Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:54.520Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:54.520Z] 
+[2026-04-24T06:50:54.520Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:50:54.521Z] 
+[2026-04-24T06:50:54.521Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:50:54.521Z] ./src/app/globals.css:1033:8
+[2026-04-24T06:50:54.522Z] [90m1031 |[0m   }
+[2026-04-24T06:50:54.522Z] [90m1032 |[0m }
+[2026-04-24T06:50:54.522Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:54.523Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:54.523Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:54.523Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:54.524Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:54.524Z] 
+[2026-04-24T06:50:54.524Z] Import trace:
+[2026-04-24T06:50:54.525Z] Client Component Browser:
+[2026-04-24T06:50:54.525Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:50:54.525Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:50:54.526Z] 
+[2026-04-24T06:50:54.526Z] 
+[2026-04-24T06:50:54.528Z] GET / 500 in 14ms (next.js: 5ms, application-code: 9ms)
+[2026-04-24T06:58:45.630Z] ⨯ ./src/app/globals.css:1033:8
+[2026-04-24T06:58:45.631Z] Parsing CSS source code failed
+[2026-04-24T06:58:45.632Z] [90m1031 |[0m   }
+[2026-04-24T06:58:45.632Z] [90m1032 |[0m }
+[2026-04-24T06:58:45.632Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:58:45.633Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:58:45.633Z] [90m1034 |[0m :root {
+[2026-04-24T06:58:45.633Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:58:45.634Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:58:45.634Z] 
+[2026-04-24T06:58:45.634Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:58:45.635Z] 
+[2026-04-24T06:58:45.635Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:58:45.635Z] ./src/app/globals.css:1033:8
+[2026-04-24T06:58:45.636Z] [90m1031 |[0m   }
+[2026-04-24T06:58:45.636Z] [90m1032 |[0m }
+[2026-04-24T06:58:45.636Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:58:45.637Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:58:45.637Z] [90m1034 |[0m :root {
+[2026-04-24T06:58:45.637Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:58:45.638Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:58:45.638Z] 
+[2026-04-24T06:58:45.638Z] Import trace:
+[2026-04-24T06:58:45.639Z] Client Component Browser:
+[2026-04-24T06:58:45.639Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:58:45.639Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:58:45.640Z] 
+[2026-04-24T06:58:45.640Z] 
+[2026-04-24T06:58:45.641Z] GET /?from_webdev=1 500 in 13ms (next.js: 4ms, application-code: 9ms)
+[2026-04-24T06:58:52.939Z] ⨯ ./src/app/globals.css:1033:8
+[2026-04-24T06:58:52.940Z] Parsing CSS source code failed
+[2026-04-24T06:58:52.941Z] [90m1031 |[0m   }
+[2026-04-24T06:58:52.941Z] [90m1032 |[0m }
+[2026-04-24T06:58:52.942Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:58:52.942Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:58:52.943Z] [90m1034 |[0m :root {
+[2026-04-24T06:58:52.943Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:58:52.943Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:58:52.944Z] 
+[2026-04-24T06:58:52.944Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:58:52.945Z] 
+[2026-04-24T06:58:52.945Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:58:52.946Z] ./src/app/globals.css:1033:8
+[2026-04-24T06:58:52.946Z] [90m1031 |[0m   }
+[2026-04-24T06:58:52.946Z] [90m1032 |[0m }
+[2026-04-24T06:58:52.947Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:58:52.947Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:58:52.947Z] [90m1034 |[0m :root {
+[2026-04-24T06:58:52.948Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:58:52.948Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:58:52.948Z] 
+[2026-04-24T06:58:52.949Z] Import trace:
+[2026-04-24T06:58:52.949Z] Client Component Browser:
+[2026-04-24T06:58:52.949Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:58:52.950Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:58:52.950Z] 
+[2026-04-24T06:58:52.950Z] 
+[2026-04-24T06:58:52.951Z] GET /?from_webdev=1 500 in 13ms (next.js: 4ms, application-code: 9ms)
+[2026-04-24T06:59:03.607Z] Error: Cannot apply unknown utility class `sm:px-6`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+[2026-04-24T06:59:03.608Z] [2m[at onInvalidCandidate (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:1314)][0m
+[2026-04-24T06:59:03.608Z] [2m[at Ne (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:16:37926)][0m
+[2026-04-24T06:59:03.609Z] [2m[at /home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:355][0m
+[2026-04-24T06:59:03.609Z] [2m[at Ur (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1733)][0m
+[2026-04-24T06:59:03.609Z] [2m[at I (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1377)][0m
+[2026-04-24T06:59:03.610Z] [2m[at Ee (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:172)][0m
+[2026-04-24T06:59:03.610Z] [2m[at vn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:294)][0m
+[2026-04-24T06:59:03.611Z] [2m[at process.processTicksAndRejections (node:internal/process/task_queues:105:5)][0m
+[2026-04-24T06:59:03.611Z] [2m[at async kn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:631)][0m
+[2026-04-24T06:59:03.611Z] [2m[at async Xr (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+node@4.2.4/node_modules/@tailwindcss/node/dist/index.js:10:3415)][0m
+[2026-04-24T06:59:08.241Z] Error: Cannot apply unknown utility class `max-w-7xl`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+[2026-04-24T06:59:08.242Z] [2m[at onInvalidCandidate (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:1314)][0m
+[2026-04-24T06:59:08.242Z] [2m[at Ne (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:16:38252)][0m
+[2026-04-24T06:59:08.243Z] [2m[at /home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:355][0m
+[2026-04-24T06:59:08.243Z] [2m[at Ur (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1733)][0m
+[2026-04-24T06:59:08.243Z] [2m[at I (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1377)][0m
+[2026-04-24T06:59:08.244Z] [2m[at Ee (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:172)][0m
+[2026-04-24T06:59:08.244Z] [2m[at vn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:294)][0m
+[2026-04-24T06:59:08.245Z] [2m[at process.processTicksAndRejections (node:internal/process/task_queues:105:5)][0m
+[2026-04-24T06:59:08.245Z] [2m[at async kn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:631)][0m
+[2026-04-24T06:59:08.246Z] [2m[at async Xr (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+node@4.2.4/node_modules/@tailwindcss/node/dist/index.js:10:3415)][0m
+[2026-04-24T06:59:11.691Z] ⨯ ./src/app/globals.css
+[2026-04-24T06:59:11.692Z] Error evaluating Node.js code
+[2026-04-24T06:59:11.693Z] CssSyntaxError: tailwindcss: /home/ubuntu/investment_portal/src/app/globals.css:1:1: Cannot apply unknown utility class `max-w-7xl`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+[2026-04-24T06:59:11.693Z] [at error (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/input.js:106:16)]
+[2026-04-24T06:59:11.694Z] [at error (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/node.js:115:32)]
+[2026-04-24T06:59:11.694Z] [at Object.Once (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+postcss@4.2.4/node_modules/@tailwindcss/postcss/dist/index.js:10:6913)]
+[2026-04-24T06:59:11.694Z] [at process.processTicksAndRejections (node:internal/process/task_queues:105:5)]
+[2026-04-24T06:59:11.695Z] [at async LazyResult.runAsync (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/lazy-result.js:261:11)]
+[2026-04-24T06:59:11.695Z] [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+[2026-04-24T06:59:11.695Z] [at async run (turbopack:///[turbopack-node]/child_process/evaluate.ts:89:23)]
+[2026-04-24T06:59:11.696Z] 
+[2026-04-24T06:59:11.696Z] Import trace:
+[2026-04-24T06:59:11.696Z] Client Component Browser:
+[2026-04-24T06:59:11.697Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:59:11.697Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:59:11.697Z] 
+[2026-04-24T06:59:11.698Z] 
+[2026-04-24T06:59:11.704Z] GET /?from_webdev=1 500 in 16ms (next.js: 6ms, application-code: 10ms)
+[2026-04-24T06:59:15.671Z] ✓ Compiled in 326ms
+[2026-04-24T06:59:19.129Z] Dev server process group stopped
+[2026-04-24T06:59:19.147Z] ELIFECYCLE  Command failed.
+[2026-04-24T06:59:19.183Z] [?25h
+[2026-04-24T06:59:19.189Z] Dev server exited with code -15
+[2026-04-24T06:59:22.140Z] Starting dev server with command: pnpm run dev
+[2026-04-24T06:59:22.515Z] 
+[2026-04-24T06:59:22.516Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T06:59:22.516Z] > next dev
+[2026-04-24T06:59:22.516Z] 
+[2026-04-24T06:59:23.112Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T06:59:23.113Z] - Local:         http://localhost:3000
+[2026-04-24T06:59:23.114Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T06:59:23.115Z] ✓ Ready in 463ms
+[2026-04-24T06:59:23.697Z] 
+[2026-04-24T06:59:25.058Z] HEAD /?from_webdev=1 200 in 1171ms (next.js: 735ms, application-code: 436ms)
+[2026-04-24T06:59:25.157Z] HEAD /?from_webdev=1 200 in 79ms (next.js: 40ms, application-code: 39ms)
+[2026-04-24T06:59:25.227Z] GET / 200 in 152ms (next.js: 6ms, application-code: 147ms)
+[2026-04-24T06:59:25.239Z] GET /?from_webdev=1 200 in 67ms (next.js: 5ms, application-code: 62ms)
+[2026-04-24T06:59:25.329Z] GET /?from_webdev=1 200 in 63ms (next.js: 6ms, application-code: 57ms)
+[2026-04-24T06:59:25.453Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T06:59:25.454Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:59:25.454Z] 
+[2026-04-24T06:59:25.454Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:59:25.455Z] 
+[2026-04-24T06:59:25.455Z] // next.config.js
+[2026-04-24T06:59:25.455Z] module.exports = {
+[2026-04-24T06:59:25.456Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T06:59:25.456Z] }
+[2026-04-24T06:59:25.456Z] 
+[2026-04-24T06:59:25.457Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:59:25.884Z] HEAD / 200 in 39ms (next.js: 3ms, application-code: 36ms)
+[2026-04-24T06:59:26.949Z] GET /?from_webdev=1 200 in 36ms (next.js: 3ms, application-code: 33ms)
+[2026-04-24T06:59:28.201Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer".
+[2026-04-24T06:59:28.202Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:59:28.203Z] 
+[2026-04-24T06:59:28.203Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:59:28.203Z] 
+[2026-04-24T06:59:28.204Z] // next.config.js
+[2026-04-24T06:59:28.204Z] module.exports = {
+[2026-04-24T06:59:28.204Z] allowedDevOrigins: ['3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer'],
+[2026-04-24T06:59:28.205Z] }
+[2026-04-24T06:59:28.205Z] 
+[2026-04-24T06:59:28.205Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:59:29.935Z] GET /?from_webdev=1 200 in 39ms (next.js: 3ms, application-code: 36ms)
