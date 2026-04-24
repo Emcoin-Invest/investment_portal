@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
+import { Modal } from '@/components/Modal';
 import { useAuth } from '@/contexts/AuthContext';
 import { getAllRequests, getUser, getProduct, updateRequest } from '@/lib/firestore';
 import type { InvestmentRequest, User, Product } from '@/lib/types';
@@ -265,37 +266,41 @@ export default function AdminRequests() {
         </div>
 
         {/* Rejection Modal */}
-        {selectedRequest && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-6">
-              <h2 className="text-lg font-semibold text-slate-900 mb-4">Reject Request</h2>
-              <textarea
-                value={rejectionReason}
-                onChange={(e) => setRejectionReason(e.target.value)}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-                rows={4}
-                placeholder="Enter rejection reason..."
-              />
-              <div className="flex gap-3">
-                <button
-                  onClick={() => handleReject(selectedRequest.id)}
-                  className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
-                >
-                  Reject
-                </button>
-                <button
-                  onClick={() => {
-                    setSelectedRequest(null);
-                    setRejectionReason('');
-                  }}
-                  className="flex-1 px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors font-medium"
-                >
-                  Cancel
-                </button>
-              </div>
+        <Modal
+          isOpen={!!selectedRequest}
+          onClose={() => {
+            setSelectedRequest(null);
+            setRejectionReason('');
+          }}
+          title="Reject Request"
+          footer={
+            <div className="flex gap-3">
+              <button
+                onClick={() => selectedRequest && handleReject(selectedRequest.id)}
+                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+              >
+                Reject
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedRequest(null);
+                  setRejectionReason('');
+                }}
+                className="flex-1 px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors font-medium"
+              >
+                Cancel
+              </button>
             </div>
-          </div>
-        )}
+          }
+        >
+          <textarea
+            value={rejectionReason}
+            onChange={(e) => setRejectionReason(e.target.value)}
+            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={4}
+            placeholder="Enter rejection reason..."
+          />
+        </Modal>
       </div>
     </AdminLayout>
   );

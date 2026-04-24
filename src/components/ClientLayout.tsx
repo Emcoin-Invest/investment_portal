@@ -24,6 +24,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     { href: '/client/portfolio', label: 'Portfolio' },
     { href: '/client/statements', label: 'Statements' },
     { href: '/client/requests', label: 'Requests' },
+    { href: '/client/notifications', label: 'Notifications' },
   ];
 
   return (
@@ -93,10 +94,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
           <div className="hidden lg:flex items-center justify-between bg-white border-b border-slate-200 px-8 py-4">
             <h1 className="text-lg font-semibold text-slate-900">Client Portal</h1>
             <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-slate-100 rounded-lg relative">
+              <Link href="/client/notifications" className="p-2 hover:bg-slate-100 rounded-lg relative transition-colors">
                 <Bell size={20} className="text-slate-600" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-              </button>
+              </Link>
             </div>
           </div>
 

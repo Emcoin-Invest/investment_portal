@@ -72,3 +72,235 @@
 [2026-04-24T06:43:23.347Z] - Network:       http://169.254.0.21:3000
 [2026-04-24T06:43:23.347Z] ✓ Ready in 555ms
 [2026-04-24T06:43:23.906Z] 
+[2026-04-24T06:47:25.006Z] Error: Cannot apply unknown utility class `badge`
+[2026-04-24T06:47:25.006Z] [2m[at onInvalidCandidate (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:1511)][0m
+[2026-04-24T06:47:25.007Z] [2m[at Ne (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:16:37926)][0m
+[2026-04-24T06:47:25.007Z] [2m[at /home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:355][0m
+[2026-04-24T06:47:25.007Z] [2m[at Ur (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1733)][0m
+[2026-04-24T06:47:25.008Z] [2m[at I (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:3:1377)][0m
+[2026-04-24T06:47:25.008Z] [2m[at Ee (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:21:172)][0m
+[2026-04-24T06:47:25.008Z] [2m[at vn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:294)][0m
+[2026-04-24T06:47:25.009Z] [2m[at async kn (/home/ubuntu/investment_portal/node_modules/.pnpm/tailwindcss@4.2.4/node_modules/tailwindcss/dist/lib.js:38:631)][0m
+[2026-04-24T06:47:25.009Z] [2m[at async Xr (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+node@4.2.4/node_modules/@tailwindcss/node/dist/index.js:10:3415)][0m
+[2026-04-24T06:47:25.009Z] [2m[at async E (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+postcss@4.2.4/node_modules/@tailwindcss/postcss/dist/index.js:10:3979)][0m
+[2026-04-24T06:47:26.261Z] ○ Compiling / ...
+[2026-04-24T06:47:26.542Z] ⨯ ./src/app/globals.css
+[2026-04-24T06:47:26.543Z] Error evaluating Node.js code
+[2026-04-24T06:47:26.544Z] CssSyntaxError: tailwindcss: /home/ubuntu/investment_portal/src/app/globals.css:1:1: Cannot apply unknown utility class `badge`
+[2026-04-24T06:47:26.544Z] [at error (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/input.js:106:16)]
+[2026-04-24T06:47:26.544Z] [at error (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/node.js:115:32)]
+[2026-04-24T06:47:26.545Z] [at Object.Once (/home/ubuntu/investment_portal/node_modules/.pnpm/@tailwindcss+postcss@4.2.4/node_modules/@tailwindcss/postcss/dist/index.js:10:6913)]
+[2026-04-24T06:47:26.545Z] [at async LazyResult.runAsync (turbopack:///[project]/node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/lazy-result.js:261:11)]
+[2026-04-24T06:47:26.545Z] [at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34)]
+[2026-04-24T06:47:26.546Z] [at async run (turbopack:///[turbopack-node]/child_process/evaluate.ts:89:23)]
+[2026-04-24T06:47:26.546Z] 
+[2026-04-24T06:47:26.546Z] Import trace:
+[2026-04-24T06:47:26.547Z] Client Component Browser:
+[2026-04-24T06:47:26.548Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:47:26.548Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:47:26.549Z] 
+[2026-04-24T06:47:26.549Z] 
+[2026-04-24T06:47:27.817Z] GET / 500 in 4.6s (next.js: 4.4s, application-code: 150ms)
+[2026-04-24T06:47:28.104Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T06:47:28.105Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:47:28.106Z] 
+[2026-04-24T06:47:28.106Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:47:28.107Z] 
+[2026-04-24T06:47:28.108Z] // next.config.js
+[2026-04-24T06:47:28.108Z] module.exports = {
+[2026-04-24T06:47:28.108Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T06:47:28.109Z] }
+[2026-04-24T06:47:28.109Z] 
+[2026-04-24T06:47:28.109Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:47:28.262Z] ⚠ Blocked cross-origin request to Next.js dev resource /__nextjs_original-stack-frames from "127.0.0.1".
+[2026-04-24T06:47:28.263Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:47:28.263Z] 
+[2026-04-24T06:47:28.263Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:47:28.264Z] 
+[2026-04-24T06:47:28.264Z] // next.config.js
+[2026-04-24T06:47:28.265Z] module.exports = {
+[2026-04-24T06:47:28.265Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T06:47:28.266Z] }
+[2026-04-24T06:47:28.266Z] 
+[2026-04-24T06:47:28.266Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:47:57.469Z] Dev server process group stopped
+[2026-04-24T06:47:57.488Z] ELIFECYCLE  Command failed.
+[2026-04-24T06:47:57.554Z] [?25h
+[2026-04-24T06:47:57.560Z] Dev server exited with code -15
+[2026-04-24T06:48:00.481Z] Starting dev server with command: pnpm run dev
+[2026-04-24T06:48:00.901Z] 
+[2026-04-24T06:48:00.902Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T06:48:00.903Z] > next dev
+[2026-04-24T06:48:00.903Z] 
+[2026-04-24T06:48:01.523Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T06:48:01.524Z] - Local:         http://localhost:3000
+[2026-04-24T06:48:01.525Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T06:48:01.525Z] ✓ Ready in 488ms
+[2026-04-24T06:48:02.182Z] 
+[2026-04-24T06:48:03.035Z] ⨯ ./src/app/globals.css:997:8
+[2026-04-24T06:48:03.036Z] Parsing CSS source code failed
+[2026-04-24T06:48:03.036Z] [90m 995 |[0m   }
+[2026-04-24T06:48:03.036Z] [90m 996 |[0m }
+[2026-04-24T06:48:03.037Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:03.037Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:03.037Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:03.038Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:03.038Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:03.038Z] 
+[2026-04-24T06:48:03.039Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:48:03.039Z] 
+[2026-04-24T06:48:03.039Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:48:03.040Z] ./src/app/globals.css:997:8
+[2026-04-24T06:48:03.040Z] [90m 995 |[0m   }
+[2026-04-24T06:48:03.040Z] [90m 996 |[0m }
+[2026-04-24T06:48:03.041Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:03.041Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:03.041Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:03.042Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:03.042Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:03.042Z] 
+[2026-04-24T06:48:03.042Z] Import trace:
+[2026-04-24T06:48:03.043Z] Client Component Browser:
+[2026-04-24T06:48:03.043Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:48:03.044Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:48:03.044Z] 
+[2026-04-24T06:48:03.044Z] 
+[2026-04-24T06:48:03.261Z] GET / 500 in 423ms (next.js: 281ms, application-code: 142ms)
+[2026-04-24T06:48:03.419Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T06:48:03.420Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:48:03.421Z] 
+[2026-04-24T06:48:03.421Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:48:03.422Z] 
+[2026-04-24T06:48:03.422Z] // next.config.js
+[2026-04-24T06:48:03.422Z] module.exports = {
+[2026-04-24T06:48:03.423Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T06:48:03.425Z] }
+[2026-04-24T06:48:03.427Z] 
+[2026-04-24T06:48:03.429Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:48:03.484Z] ⚠ Blocked cross-origin request to Next.js dev resource /__nextjs_original-stack-frames from "127.0.0.1".
+[2026-04-24T06:48:03.485Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T06:48:03.485Z] 
+[2026-04-24T06:48:03.486Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T06:48:03.486Z] 
+[2026-04-24T06:48:03.487Z] // next.config.js
+[2026-04-24T06:48:03.487Z] module.exports = {
+[2026-04-24T06:48:03.487Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T06:48:03.488Z] }
+[2026-04-24T06:48:03.488Z] 
+[2026-04-24T06:48:03.488Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T06:48:18.712Z] ⨯ ./src/app/globals.css:997:8
+[2026-04-24T06:48:18.713Z] Parsing CSS source code failed
+[2026-04-24T06:48:18.713Z] [90m 995 |[0m   }
+[2026-04-24T06:48:18.713Z] [90m 996 |[0m }
+[2026-04-24T06:48:18.714Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:18.714Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:18.714Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:18.715Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:18.715Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:18.715Z] 
+[2026-04-24T06:48:18.716Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:48:18.716Z] 
+[2026-04-24T06:48:18.716Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:48:18.717Z] ./src/app/globals.css:997:8
+[2026-04-24T06:48:18.717Z] [90m 995 |[0m   }
+[2026-04-24T06:48:18.717Z] [90m 996 |[0m }
+[2026-04-24T06:48:18.718Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:18.718Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:18.718Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:18.719Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:18.719Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:18.720Z] 
+[2026-04-24T06:48:18.720Z] Import trace:
+[2026-04-24T06:48:18.720Z] Client Component Browser:
+[2026-04-24T06:48:18.721Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:48:18.721Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:48:18.721Z] 
+[2026-04-24T06:48:18.722Z] 
+[2026-04-24T06:48:18.730Z] GET /?from_webdev=1 500 in 23ms (next.js: 9ms, application-code: 14ms)
+[2026-04-24T06:48:29.372Z] ⨯ ./src/app/globals.css:997:8
+[2026-04-24T06:48:29.373Z] Parsing CSS source code failed
+[2026-04-24T06:48:29.373Z] [90m 995 |[0m   }
+[2026-04-24T06:48:29.374Z] [90m 996 |[0m }
+[2026-04-24T06:48:29.374Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:29.374Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:29.375Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:29.375Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:29.375Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:29.376Z] 
+[2026-04-24T06:48:29.376Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:48:29.376Z] 
+[2026-04-24T06:48:29.377Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:48:29.377Z] ./src/app/globals.css:997:8
+[2026-04-24T06:48:29.377Z] [90m 995 |[0m   }
+[2026-04-24T06:48:29.378Z] [90m 996 |[0m }
+[2026-04-24T06:48:29.378Z] [31m[1m>[0m [90m 997 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:48:29.378Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:48:29.379Z] [90m 998 |[0m :root {
+[2026-04-24T06:48:29.379Z] [90m 999 |[0m   --background: #ffffff;
+[2026-04-24T06:48:29.379Z] [90m1000 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:48:29.380Z] 
+[2026-04-24T06:48:29.380Z] Import trace:
+[2026-04-24T06:48:29.380Z] Client Component Browser:
+[2026-04-24T06:48:29.381Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:48:29.381Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:48:29.381Z] 
+[2026-04-24T06:48:29.382Z] 
+[2026-04-24T06:48:29.387Z] GET /?from_webdev=1 500 in 19ms (next.js: 8ms, application-code: 11ms)
+[2026-04-24T06:50:06.129Z] ⨯ ./src/app/globals.css:1033:8
+[2026-04-24T06:50:06.130Z] Parsing CSS source code failed
+[2026-04-24T06:50:06.130Z] [90m1031 |[0m   }
+[2026-04-24T06:50:06.131Z] [90m1032 |[0m }
+[2026-04-24T06:50:06.131Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:06.131Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:06.132Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:06.132Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:06.132Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:06.133Z] 
+[2026-04-24T06:50:06.133Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:50:06.133Z] 
+[2026-04-24T06:50:06.134Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:50:06.134Z] ./src/app/globals.css:1033:8
+[2026-04-24T06:50:06.134Z] [90m1031 |[0m   }
+[2026-04-24T06:50:06.135Z] [90m1032 |[0m }
+[2026-04-24T06:50:06.135Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:06.135Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:06.136Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:06.136Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:06.136Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:06.137Z] 
+[2026-04-24T06:50:06.137Z] Import trace:
+[2026-04-24T06:50:06.137Z] Client Component Browser:
+[2026-04-24T06:50:06.138Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:50:06.138Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:50:06.138Z] 
+[2026-04-24T06:50:06.139Z] 
+[2026-04-24T06:50:06.142Z] GET /?from_webdev=1 500 in 16ms (next.js: 6ms, application-code: 9ms)
+[2026-04-24T06:50:35.726Z] ⨯ ./src/app/globals.css:1033:8
+[2026-04-24T06:50:35.727Z] Parsing CSS source code failed
+[2026-04-24T06:50:35.727Z] [90m1031 |[0m   }
+[2026-04-24T06:50:35.727Z] [90m1032 |[0m }
+[2026-04-24T06:50:35.728Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:35.728Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:35.728Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:35.729Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:35.729Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:35.729Z] 
+[2026-04-24T06:50:35.730Z] @import rules must precede all rules aside from @charset and @layer statements
+[2026-04-24T06:50:35.730Z] 
+[2026-04-24T06:50:35.730Z] Generated code of PostCSS transform of file content of src/app/globals.css:
+[2026-04-24T06:50:35.731Z] ./src/app/globals.css:1033:8
+[2026-04-24T06:50:35.731Z] [90m1031 |[0m   }
+[2026-04-24T06:50:35.731Z] [90m1032 |[0m }
+[2026-04-24T06:50:35.732Z] [31m[1m>[0m [90m1033 |[0m @[36mimport[0m url([32m'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display...[0m
+[2026-04-24T06:50:35.732Z] [90m     |[0m        [31m[1m^[0m
+[2026-04-24T06:50:35.732Z] [90m1034 |[0m :root {
+[2026-04-24T06:50:35.733Z] [90m1035 |[0m   --background: #ffffff;
+[2026-04-24T06:50:35.733Z] [90m1036 |[0m   --foreground: #[35m171717[0m;
+[2026-04-24T06:50:35.733Z] 
+[2026-04-24T06:50:35.734Z] Import trace:
+[2026-04-24T06:50:35.734Z] Client Component Browser:
+[2026-04-24T06:50:35.734Z] ./src/app/globals.css [Client Component Browser]
+[2026-04-24T06:50:35.735Z] ./src/app/layout.tsx [Server Component]
+[2026-04-24T06:50:35.735Z] 
+[2026-04-24T06:50:35.735Z] 
+[2026-04-24T06:50:35.737Z] GET /?from_webdev=1 500 in 13ms (next.js: 4ms, application-code: 9ms)

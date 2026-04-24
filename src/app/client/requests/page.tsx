@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { ClientLayout } from '@/components/ClientLayout';
+import { Toast, ToastContainer, useToast } from '@/components/Toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { getUserRequests, createRequest, getAllProducts } from '@/lib/firestore';
 import type { InvestmentRequest, Product, RequestType } from '@/lib/types';
@@ -10,6 +11,7 @@ import { nanoid } from 'nanoid';
 
 export default function ClientRequests() {
   const { user } = useAuth();
+  const { toasts, addToast, removeToast, success, error: showError } = useToast();
   const [requests, setRequests] = useState<InvestmentRequest[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,14 +39,16 @@ export default function ClientRequests() {
         const allProducts = await getAllProducts();
         setProducts(allProducts);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load requests');
+        const errorMsg = err instanceof Error ? err.message : 'Failed to load requests';
+        setError(errorMsg);
+        showError('Error', errorMsg);
       } finally {
         setLoading(false);
       }
     };
 
     loadData();
-  }, [user]);
+  }, [user, showError]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,6 +70,9 @@ export default function ClientRequests() {
         updatedAt: new Date(),
       });
 
+      // Show success toast
+      success('Request Submitted', 'Your request has been submitted successfully and is pending review.');
+
       // Reset form and refresh requests
       setFormData({ type: 'buy', productId: '', amount: '', message: '' });
       setShowForm(false);
@@ -73,7 +80,9 @@ export default function ClientRequests() {
       const userRequests = await getUserRequests(user.id);
       setRequests(userRequests);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to submit request');
+      const errorMsg = err instanceof Error ? err.message : 'Failed to submit request';
+      setError(errorMsg);
+      showError('Submission Failed', errorMsg);
     } finally {
       setSubmitting(false);
     }
@@ -137,7 +146,7 @@ export default function ClientRequests() {
 
         {/* Request Form */}
         {showForm && (
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 animate-slideIn">
             <h2 className="text-lg font-semibold text-slate-900 mb-6">Submit a New Request</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Request Type */}
@@ -299,6 +308,9 @@ export default function ClientRequests() {
           )}
         </div>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer toasts={toasts} onClose={removeToast} />
     </ClientLayout>
   );
 }
