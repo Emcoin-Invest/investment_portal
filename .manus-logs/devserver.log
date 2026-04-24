@@ -762,3 +762,64 @@
 [2026-04-24T19:29:48.875Z] https://nextjs.org/telemetry
 [2026-04-24T19:29:48.876Z] 
 [2026-04-24T19:29:49.382Z] 
+[2026-04-24T19:30:12.382Z] GET / 307 in 3.5s (next.js: 3.0s, application-code: 525ms)
+[2026-04-24T19:30:13.244Z] GET /login 200 in 866ms (next.js: 787ms, application-code: 79ms)
+[2026-04-24T19:30:13.740Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T19:30:13.741Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T19:30:13.741Z] 
+[2026-04-24T19:30:13.742Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T19:30:13.742Z] 
+[2026-04-24T19:30:13.743Z] // next.config.js
+[2026-04-24T19:30:13.743Z] module.exports = {
+[2026-04-24T19:30:13.744Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T19:30:13.744Z] }
+[2026-04-24T19:30:13.745Z] 
+[2026-04-24T19:30:13.745Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T19:30:19.869Z] GET /?from_webdev=1 307 in 64ms (next.js: 3ms, application-code: 61ms)
+[2026-04-24T19:30:20.082Z] GET /login 200 in 45ms (next.js: 3ms, application-code: 42ms)
+[2026-04-24T19:30:21.626Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer".
+[2026-04-24T19:30:21.627Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T19:30:21.628Z] 
+[2026-04-24T19:30:21.628Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T19:30:21.628Z] 
+[2026-04-24T19:30:21.629Z] // next.config.js
+[2026-04-24T19:30:21.629Z] module.exports = {
+[2026-04-24T19:30:21.630Z] allowedDevOrigins: ['3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer'],
+[2026-04-24T19:30:21.630Z] }
+[2026-04-24T19:30:21.631Z] 
+[2026-04-24T19:30:21.631Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T19:30:22.387Z] HEAD / 307 in 52ms (next.js: 3ms, application-code: 49ms)
+[2026-04-24T19:30:22.654Z] HEAD /login 200 in 44ms (next.js: 3ms, application-code: 41ms)
+[2026-04-24T19:30:23.327Z] GET /?from_webdev=1 307 in 94ms (next.js: 4ms, application-code: 91ms)
+[2026-04-24T19:30:23.553Z] GET /login 200 in 65ms (next.js: 4ms, application-code: 61ms)
+[2026-04-24T19:31:19.201Z] GET /login? 200 in 63ms (next.js: 6ms, application-code: 57ms)
+[2026-04-24T19:33:47.215Z] GET /?from_webdev=1 307 in 65ms (next.js: 6ms, application-code: 59ms)
+[2026-04-24T19:33:47.471Z] GET /login 200 in 52ms (next.js: 4ms, application-code: 47ms)
+[2026-04-24T19:33:48.924Z] HEAD / 307 in 53ms (next.js: 3ms, application-code: 51ms)
+[2026-04-24T19:33:49.248Z] HEAD /login 200 in 38ms (next.js: 2ms, application-code: 36ms)
+[2026-04-24T19:33:49.929Z] GET /?from_webdev=1 307 in 54ms (next.js: 2ms, application-code: 51ms)
+[2026-04-24T19:33:50.139Z] GET /login 200 in 43ms (next.js: 2ms, application-code: 41ms)
+[2026-04-24T19:34:08.903Z] GET /?from_webdev=1 307 in 55ms (next.js: 3ms, application-code: 53ms)
+[2026-04-24T19:34:09.115Z] GET /login 200 in 45ms (next.js: 4ms, application-code: 41ms)
+[2026-04-24T19:34:10.652Z] HEAD / 307 in 45ms (next.js: 3ms, application-code: 42ms)
+[2026-04-24T19:34:10.917Z] HEAD /login 200 in 33ms (next.js: 2ms, application-code: 31ms)
+[2026-04-24T19:34:11.631Z] GET /?from_webdev=1 307 in 56ms (next.js: 2ms, application-code: 54ms)
+[2026-04-24T19:34:11.838Z] GET /login 200 in 40ms (next.js: 3ms, application-code: 37ms)
+[2026-04-24T19:34:46.313Z] GET /?from_webdev=1 307 in 66ms (next.js: 3ms, application-code: 63ms)
+[2026-04-24T19:34:46.536Z] GET /login 200 in 55ms (next.js: 5ms, application-code: 50ms)
+[2026-04-24T19:34:48.029Z] HEAD / 307 in 51ms (next.js: 2ms, application-code: 49ms)
+[2026-04-24T19:34:48.293Z] HEAD /login 200 in 38ms (next.js: 2ms, application-code: 36ms)
+[2026-04-24T19:34:48.982Z] GET /?from_webdev=1 307 in 76ms (next.js: 3ms, application-code: 73ms)
+[2026-04-24T19:34:49.193Z] GET /login 200 in 44ms (next.js: 2ms, application-code: 42ms)
+[2026-04-24T19:35:13.539Z] GET /?from_webdev=1 307 in 60ms (next.js: 3ms, application-code: 58ms)
+[2026-04-24T19:35:13.755Z] GET /login 200 in 46ms (next.js: 2ms, application-code: 44ms)
+[2026-04-24T19:35:15.368Z] HEAD / 307 in 47ms (next.js: 2ms, application-code: 45ms)
+[2026-04-24T19:35:15.640Z] HEAD /login 200 in 38ms (next.js: 2ms, application-code: 36ms)
+[2026-04-24T19:35:16.281Z] GET /?from_webdev=1 307 in 60ms (next.js: 4ms, application-code: 57ms)
+[2026-04-24T19:35:16.490Z] GET /login 200 in 44ms (next.js: 2ms, application-code: 42ms)
+[2026-04-24T19:35:41.496Z] GET /?from_webdev=1 307 in 67ms (next.js: 3ms, application-code: 64ms)
+[2026-04-24T19:35:41.707Z] GET /login 200 in 46ms (next.js: 2ms, application-code: 44ms)
+[2026-04-24T19:35:43.772Z] HEAD / 307 in 48ms (next.js: 3ms, application-code: 46ms)
+[2026-04-24T19:35:44.033Z] HEAD /login 200 in 41ms (next.js: 2ms, application-code: 39ms)
+[2026-04-24T19:35:45.370Z] GET /?from_webdev=1 307 in 52ms (next.js: 2ms, application-code: 49ms)
+[2026-04-24T19:35:45.579Z] GET /login 200 in 45ms (next.js: 2ms, application-code: 43ms)

@@ -5,7 +5,7 @@ export const ROUTE_CONFIG = {
   public: ['/login', '/signup', '/forgot-password'],
 
   // Client routes
-  client: ['/client/dashboard', '/client/portfolio', '/client/statements', '/client/requests', '/client/profile'],
+  client: ['/client/dashboard', '/client/portfolio', '/client/statements', '/client/requests', '/client/notifications', '/client/profile'],
 
   // Admin routes
   admin: [
@@ -16,6 +16,7 @@ export const ROUTE_CONFIG = {
     '/admin/pricing',
     '/admin/requests',
     '/admin/statements',
+    '/admin/notifications',
     '/admin/profile',
   ],
 };

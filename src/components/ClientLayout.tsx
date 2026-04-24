@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { Menu, X, LogOut, Bell } from 'lucide-react';
+import { Menu, X, LogOut, Bell, LayoutDashboard, Briefcase, FileText, Send, MessageSquare, ChevronRight } from 'lucide-react';
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -17,94 +17,124 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     router.push('/login');
   };
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => pathname === path || pathname.startsWith(path + '/');
 
   const navItems = [
-    { href: '/client/dashboard', label: 'Dashboard' },
-    { href: '/client/portfolio', label: 'Portfolio' },
-    { href: '/client/statements', label: 'Statements' },
-    { href: '/client/requests', label: 'Requests' },
-    { href: '/client/notifications', label: 'Notifications' },
+    { href: '/client/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/client/portfolio', label: 'Portfolio', icon: Briefcase },
+    { href: '/client/statements', label: 'Statements', icon: FileText },
+    { href: '/client/requests', label: 'Requests', icon: Send },
+    { href: '/client/notifications', label: 'Notifications', icon: MessageSquare },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Mobile header */}
-      <div className="lg:hidden bg-white border-b border-slate-200 sticky top-0 z-40">
-        <div className="flex items-center justify-between p-4">
-          <h1 className="text-xl font-bold text-slate-900">Investment Portal</h1>
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 hover:bg-slate-100 rounded-lg"
-          >
-            {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      <div className="flex">
-        {/* Sidebar */}
-        <aside
-          className={`${
-            sidebarOpen ? 'block' : 'hidden'
-          } lg:block w-64 bg-white border-r border-slate-200 min-h-screen fixed lg:relative z-30 lg:z-0`}
-        >
-          <div className="p-6">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8">Investment Portal</h2>
-
-            {/* Navigation */}
-            <nav className="space-y-2 mb-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block px-4 py-2 rounded-lg transition-colors ${
-                    isActive(item.href)
-                      ? 'bg-blue-100 text-blue-700 font-medium'
-                      : 'text-slate-700 hover:bg-slate-100'
-                  }`}
-                  onClick={() => setSidebarOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-
-            {/* User info */}
-            <div className="border-t border-slate-200 pt-4">
-              <div className="mb-4">
-                <p className="text-sm text-slate-600">Logged in as</p>
-                <p className="font-medium text-slate-900">{user?.name}</p>
-                <p className="text-xs text-slate-500">{user?.email}</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      {/* Top Navigation Bar */}
+      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <Link href="/client/dashboard" className="flex items-center gap-3 font-bold text-lg text-slate-900 hover:text-blue-600 transition">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                IP
               </div>
-              <button
-                onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
+              <span className="hidden sm:inline bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Investment Portal</span>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`px-3 py-2 rounded-lg font-medium transition-all flex items-center gap-2 text-sm ${
+                      isActive(item.href)
+                        ? 'bg-blue-50 text-blue-600 shadow-sm'
+                        : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Right side */}
+            <div className="flex items-center gap-3">
+              {/* Notification Bell */}
+              <Link
+                href="/client/notifications"
+                className="relative p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition"
               >
-                <LogOut size={18} />
-                Logout
+                <Bell className="w-5 h-5" />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+              </Link>
+
+              {/* User Menu */}
+              <div className="hidden sm:flex items-center gap-3 pl-3 border-l border-slate-200">
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-slate-900">{user?.name || 'User'}</p>
+                  <p className="text-xs text-slate-500">{user?.role}</p>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="p-2 text-slate-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
+                  title="Logout"
+                >
+                  <LogOut className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition"
+              >
+                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
-        </aside>
 
-        {/* Main content */}
-        <main className="flex-1 w-full lg:w-auto">
-          {/* Top bar */}
-          <div className="hidden lg:flex items-center justify-between bg-white border-b border-slate-200 px-8 py-4">
-            <h1 className="text-lg font-semibold text-slate-900">Client Portal</h1>
-            <div className="flex items-center gap-4">
-              <Link href="/client/notifications" className="p-2 hover:bg-slate-100 rounded-lg relative transition-colors">
-                <Bell size={20} className="text-slate-600" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-              </Link>
+          {/* Mobile Navigation */}
+          {sidebarOpen && (
+            <div className="lg:hidden pb-4 border-t border-slate-200 mt-2 space-y-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setSidebarOpen(false)}
+                    className={`block px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
+                      isActive(item.href)
+                        ? 'bg-blue-50 text-blue-600'
+                        : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <button
+                onClick={handleLogout}
+                className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 text-slate-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
+              >
+                <LogOut className="w-4 h-4" />
+                Logout
+              </button>
             </div>
-          </div>
+          )}
+        </div>
+      </nav>
 
-          {/* Content */}
-          <div className="p-4 lg:p-8">{children}</div>
-        </main>
-      </div>
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {children}
+      </main>
     </div>
   );
 }

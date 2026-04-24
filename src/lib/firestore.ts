@@ -38,14 +38,17 @@ export async function getUser(userId: string): Promise<User | null> {
   const docRef = doc(db, 'users', userId);
   const docSnap = await getDoc(docRef);
   if (!docSnap.exists()) return null;
-  return docSnap.data() as User;
+  const data = docSnap.data();
+  return { ...data, id: docSnap.id } as User;
 }
 
 export async function getUserByEmail(email: string): Promise<User | null> {
   const q = query(usersCollection, where('email', '==', email));
   const querySnapshot = await getDocs(q);
   if (querySnapshot.empty) return null;
-  return querySnapshot.docs[0].data() as User;
+  const doc = querySnapshot.docs[0];
+  const data = doc.data();
+  return { ...data, id: doc.id } as User;
 }
 
 export async function createUser(userId: string, userData: Omit<User, 'id'>): Promise<void> {
@@ -68,7 +71,10 @@ export async function updateUser(userId: string, updates: Partial<User>): Promis
 export async function getAllUsers(): Promise<User[]> {
   const q = query(usersCollection, orderBy('createdAt', 'desc'));
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((doc) => doc.data() as User);
+  return querySnapshot.docs.map((doc) => {
+    const data = doc.data();
+    return { ...data, id: doc.id } as User;
+  });
 }
 
 // ============================================================================
