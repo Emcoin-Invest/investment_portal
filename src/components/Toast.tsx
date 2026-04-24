@@ -14,6 +14,14 @@ interface ToastProps {
   onClose: (id: string) => void;
 }
 
+interface InternalToast {
+  id: string;
+  type: ToastType;
+  title: string;
+  message?: string;
+  duration?: number;
+}
+
 export function Toast({ id, type, title, message, duration = 5000, onClose }: ToastProps) {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -97,24 +105,29 @@ export function ToastContainer({ toasts, onClose }: { toasts: ToastProps[]; onCl
 
 // Hook for managing toasts
 export function useToast() {
-  const [toasts, setToasts] = useState<ToastProps[]>([]);
+  const [internalToasts, setInternalToasts] = useState<InternalToast[]>([]);
 
   const addToast = (type: ToastType, title: string, message?: string, duration?: number) => {
     const id = Math.random().toString(36).substr(2, 9);
-    setToasts((prev) => [...prev, { id, type, title, message, duration }]);
+    setInternalToasts((prev) => [...prev, { id, type, title, message, duration }]);
   };
 
   const removeToast = (id: string) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
+    setInternalToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
+  const toasts = internalToasts.map((t) => ({
+    ...t,
+    onClose: removeToast,
+  }));
+
   return {
-    toasts,
+    toasts: toasts as ToastProps[],
     addToast,
     removeToast,
-    success: (title: string, message?: string) => addToast('success', title, message),
-    error: (title: string, message?: string) => addToast('error', title, message),
-    info: (title: string, message?: string) => addToast('info', title, message),
-    warning: (title: string, message?: string) => addToast('warning', title, message),
+    success: (title: string, message?: string) => addToast('success', title, message, 5000),
+    error: (title: string, message?: string) => addToast('error', title, message, 7000),
+    info: (title: string, message?: string) => addToast('info', title, message, 5000),
+    warning: (title: string, message?: string) => addToast('warning', title, message, 6000),
   };
 }
