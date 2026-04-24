@@ -41,6 +41,7 @@ export default function LoginPage() {
           name: name || email.split('@')[0],
           role: 'client', // New users are clients by default
           status: 'active',
+          createdAt: new Date(),
           updatedAt: new Date(),
         });
 
