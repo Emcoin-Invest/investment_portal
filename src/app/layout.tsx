@@ -31,7 +31,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AuthProvider>
-          <ProtectedRoute>{children}</ProtectedRoute>
+          {children}
         </AuthProvider>
       </body>
     </html>

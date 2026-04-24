@@ -673,3 +673,92 @@
 [2026-04-24T19:22:10.070Z] GET /?from_webdev=1 200 in 49ms (next.js: 3ms, application-code: 46ms)
 [2026-04-24T19:22:11.940Z] HEAD / 200 in 40ms (next.js: 3ms, application-code: 37ms)
 [2026-04-24T19:22:12.588Z] GET /?from_webdev=1 200 in 43ms (next.js: 3ms, application-code: 40ms)
+[2026-04-24T19:22:29.453Z] GET / 200 in 39ms (next.js: 2ms, application-code: 36ms)
+[2026-04-24T19:24:36.188Z] ✓ Compiled in 587ms
+[2026-04-24T19:25:08.572Z] ✓ Compiled in 126ms
+[2026-04-24T19:25:36.182Z] ✓ Compiled in 583ms
+[2026-04-24T19:25:59.601Z] ✓ Compiled in 521ms
+[2026-04-24T19:26:22.218Z] Persisting failed: Unable to write SST file 00000289.sst
+[2026-04-24T19:26:22.219Z] 
+[2026-04-24T19:26:22.219Z] Caused by:
+[2026-04-24T19:26:22.220Z] No such file or directory (os error 2)
+[2026-04-24T19:26:24.221Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:26:56.609Z] 
+[2026-04-24T19:26:56.610Z] thread 'tokio-runtime-worker' (17335) panicked at turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:197:17:
+[2026-04-24T19:26:56.610Z] Failed to restore task data (corrupted database or bug): Data for TaskId 748)
+[2026-04-24T19:26:56.611Z] 
+[2026-04-24T19:26:56.612Z] Caused by:
+[2026-04-24T19:26:56.612Z] 0: Looking up task storage for TaskId 748 from database failed
+[2026-04-24T19:26:56.613Z] 1: Unable to open static sorted file referenced from 00000273.meta
+[2026-04-24T19:26:56.613Z] 2: Unable to open static sorted file 00000271.sst
+[2026-04-24T19:26:56.614Z] 3: Failed to open SST file /home/ubuntu/investment_portal/.next/dev/cache/turbopack/e0739832/00000271.sst
+[2026-04-24T19:26:56.614Z] 4: No such file or directory (os error 2)
+[2026-04-24T19:26:56.614Z] note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[2026-04-24T19:26:56.628Z] 
+[2026-04-24T19:26:56.628Z] thread 'tokio-runtime-worker' (17335) panicked at turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:619:14:
+[2026-04-24T19:26:56.629Z] Failed to lookup task ids: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<DiskFileSystem as FileSystem>::read", global_name: "<turbo_tasks_fs::DiskFileSystem as dyn turbo_tasks_fs::FileSystem>::read", .. }, this: Some(RawVc::TaskCell(9, "turbo_tasks_fs::DiskFileSystem#0")), arg: (FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(9, "turbo_tasks_fs::DiskFileSystem#0")), path: "src/app/page.tsx" },) } from database failed
+[2026-04-24T19:26:56.629Z] 
+[2026-04-24T19:26:56.630Z] Caused by:
+[2026-04-24T19:26:56.630Z] 0: Unable to open static sorted file referenced from 00000046.meta
+[2026-04-24T19:26:56.631Z] 1: Unable to open static sorted file 00000042.sst
+[2026-04-24T19:26:56.631Z] 2: Failed to open SST file /home/ubuntu/investment_portal/.next/dev/cache/turbopack/e0739832/00000042.sst
+[2026-04-24T19:26:56.631Z] 3: No such file or directory (os error 2)
+[2026-04-24T19:26:56.633Z] 
+[2026-04-24T19:26:56.633Z] thread 'tokio-runtime-worker' (17335) panicked at turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:197:17:
+[2026-04-24T19:26:56.634Z] Failed to restore task data (corrupted database or bug): Data for TaskId 748)
+[2026-04-24T19:26:56.634Z] 
+[2026-04-24T19:26:56.634Z] Caused by:
+[2026-04-24T19:26:56.635Z] 0: Looking up task storage for TaskId 748 from database failed
+[2026-04-24T19:26:56.635Z] 1: Unable to open static sorted file referenced from 00000273.meta
+[2026-04-24T19:26:56.635Z] 2: Unable to open static sorted file 00000271.sst
+[2026-04-24T19:26:56.636Z] 3: Failed to open SST file /home/ubuntu/investment_portal/.next/dev/cache/turbopack/e0739832/00000271.sst
+[2026-04-24T19:26:56.636Z] 4: No such file or directory (os error 2)
+[2026-04-24T19:27:41.547Z] ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[2026-04-24T19:27:42.068Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T19:27:42.069Z] - Local:         http://localhost:3000
+[2026-04-24T19:27:42.069Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T19:27:42.069Z] ✓ Ready in 442ms
+[2026-04-24T19:27:42.178Z] Attention: Next.js now collects completely anonymous telemetry regarding usage.
+[2026-04-24T19:27:42.179Z] This information is used to shape Next.js' roadmap and prioritize features.
+[2026-04-24T19:27:42.179Z] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[2026-04-24T19:27:42.179Z] https://nextjs.org/telemetry
+[2026-04-24T19:27:42.180Z] 
+[2026-04-24T19:27:42.723Z] 
+[2026-04-24T19:27:49.163Z] Persisting failed: Unable to write SST file 00000009.sst
+[2026-04-24T19:27:49.164Z] 
+[2026-04-24T19:27:49.165Z] Caused by:
+[2026-04-24T19:27:49.165Z] No such file or directory (os error 2)
+[2026-04-24T19:27:51.165Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:28:09.220Z] ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[2026-04-24T19:28:09.631Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T19:28:09.632Z] - Local:         http://localhost:3000
+[2026-04-24T19:28:09.632Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T19:28:09.633Z] ✓ Ready in 387ms
+[2026-04-24T19:28:09.733Z] Attention: Next.js now collects completely anonymous telemetry regarding usage.
+[2026-04-24T19:28:09.734Z] This information is used to shape Next.js' roadmap and prioritize features.
+[2026-04-24T19:28:09.735Z] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[2026-04-24T19:28:09.735Z] https://nextjs.org/telemetry
+[2026-04-24T19:28:09.736Z] 
+[2026-04-24T19:28:10.258Z] 
+[2026-04-24T19:28:19.238Z] Persisting failed: Unable to write SST file 00000009.sst
+[2026-04-24T19:28:19.239Z] 
+[2026-04-24T19:28:19.239Z] Caused by:
+[2026-04-24T19:28:19.240Z] No such file or directory (os error 2)
+[2026-04-24T19:28:21.240Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:28:58.479Z] Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:00.481Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:19.976Z] Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:21.978Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:26.579Z] Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:28.581Z] Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[2026-04-24T19:29:48.254Z] ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[2026-04-24T19:29:48.744Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T19:29:48.745Z] - Local:         http://localhost:3000
+[2026-04-24T19:29:48.746Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T19:29:48.747Z] ✓ Ready in 460ms
+[2026-04-24T19:29:48.873Z] Attention: Next.js now collects completely anonymous telemetry regarding usage.
+[2026-04-24T19:29:48.874Z] This information is used to shape Next.js' roadmap and prioritize features.
+[2026-04-24T19:29:48.875Z] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[2026-04-24T19:29:48.875Z] https://nextjs.org/telemetry
+[2026-04-24T19:29:48.876Z] 
+[2026-04-24T19:29:49.382Z] 
