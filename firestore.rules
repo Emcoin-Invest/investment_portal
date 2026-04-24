@@ -1,0 +1,149 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isClient() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'client';
+    }
+
+    function isOwnUser(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // ========================================================================
+    // USERS COLLECTION
+    // ========================================================================
+    match /users/{userId} {
+      // Clients can read only their own user profile
+      allow read: if isOwnUser(userId);
+      // Admins can read all user profiles
+      allow read: if isAdmin();
+      // Admins can create and update users
+      allow create, update: if isAdmin();
+      // Admins can delete users
+      allow delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // PRODUCTS COLLECTION
+    // ========================================================================
+    match /products/{productId} {
+      // All authenticated users can read products
+      allow read: if isSignedIn();
+      // Only admins can create, update, delete products
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // PORTFOLIO POSITIONS COLLECTION
+    // ========================================================================
+    match /portfolioPositions/{positionId} {
+      // Clients can read only their own portfolio positions
+      allow read: if isClient() && resource.data.userId == request.auth.uid;
+      // Admins can read all portfolio positions
+      allow read: if isAdmin();
+      // Only admins can create, update, delete portfolio positions
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // PRICES COLLECTION
+    // ========================================================================
+    match /prices/{priceId} {
+      // All authenticated users can read prices
+      allow read: if isSignedIn();
+      // Only admins can create and update prices
+      allow create, update: if isAdmin();
+      // Only admins can delete prices
+      allow delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // INVESTMENT REQUESTS COLLECTION
+    // ========================================================================
+    match /investmentRequests/{requestId} {
+      // Clients can read only their own requests
+      allow read: if isClient() && resource.data.userId == request.auth.uid;
+      // Admins can read all requests
+      allow read: if isAdmin();
+      // Clients can create their own requests
+      allow create: if isClient() && request.resource.data.userId == request.auth.uid;
+      // Admins can update request status
+      allow update: if isAdmin();
+      // Admins can delete requests
+      allow delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // STATEMENTS COLLECTION
+    // ========================================================================
+    match /statements/{statementId} {
+      // Clients can read only their own statements
+      allow read: if isClient() && resource.data.userId == request.auth.uid;
+      // Admins can read all statements
+      allow read: if isAdmin();
+      // Only admins can create and update statements
+      allow create, update: if isAdmin();
+      // Only admins can delete statements
+      allow delete: if isAdmin();
+    }
+
+    // ========================================================================
+    // NOTIFICATIONS COLLECTION
+    // ========================================================================
+    match /notifications/{notificationId} {
+      // Users can read only their own notifications
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      // System (via Cloud Functions) can create notifications
+      allow create: if isSignedIn();
+      // Users can update their own notifications (mark as read)
+      allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
+      // Users can delete their own notifications
+      allow delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // ========================================================================
+    // AUDIT LOGS COLLECTION
+    // ========================================================================
+    match /auditLogs/{logId} {
+      // Only admins can read audit logs
+      allow read: if isAdmin();
+      // System (via Cloud Functions) can create audit logs
+      allow create: if isSignedIn();
+      // Audit logs cannot be updated or deleted
+      allow update, delete: if false;
+    }
+
+    // ========================================================================
+    // PRICE HISTORY COLLECTION
+    // ========================================================================
+    match /priceHistory/{historyId} {
+      // All authenticated users can read price history
+      allow read: if isSignedIn();
+      // System (via Cloud Functions) can create price history
+      allow create: if isSignedIn();
+      // Price history cannot be updated or deleted
+      allow update, delete: if false;
+    }
+
+    // ========================================================================
+    // STORAGE RULES
+    // ========================================================================
+    match /statements/{userId}/{allPaths=**} {
+      // Clients can read only their own statement files
+      allow read: if isClient() && request.auth.uid == userId;
+      // Admins can read all statement files
+      allow read: if isAdmin();
+      // Only admins can upload statement files
+      allow write: if isAdmin();
+    }
+  }
+}

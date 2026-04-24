@@ -1,0 +1,74 @@
+[2026-04-23T08:46:18.007Z] Starting dev server with command: pnpm run dev
+[2026-04-23T08:46:18.944Z] 
+[2026-04-23T08:46:18.945Z] > investment_portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-23T08:46:18.946Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-04-23T08:46:18.946Z] 
+[2026-04-23T08:46:20.988Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-04-23T08:46:21.318Z] Server running on http://localhost:3000/
+[2026-04-23T08:55:06.528Z] Dev server process group stopped
+[2026-04-23T08:55:06.530Z] ELIFECYCLE  Command failed.
+[2026-04-23T08:55:08.530Z] Dev server process group force killed
+[2026-04-23T08:55:12.316Z] Starting dev server with command: pnpm run dev
+[2026-04-23T08:55:13.114Z] 
+[2026-04-23T08:55:13.115Z] > investment_portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-23T08:55:13.116Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-04-23T08:55:13.116Z] 
+[2026-04-23T08:55:14.815Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-04-23T08:55:15.099Z] Port 3000 is busy, using port 3001 instead
+[2026-04-23T08:55:15.100Z] Server running on http://localhost:3001/
+[2026-04-23T08:56:01.664Z] 4:56:01 AM [vite] (client) page reload index.html
+[2026-04-23T08:56:01.756Z] 4:56:01 AM [tsx] unlink in ./vite.config.ts Restarting...
+[2026-04-23T08:56:06.762Z] 4:56:06 AM [tsx] Process didn't exit in 5s. Force killing...
+[2026-04-23T09:59:09.028Z] Dev server exited with code -15
+[2026-04-23T09:59:09.067Z] cnode:internal/modules/cjs/loader:1247
+[2026-04-23T09:59:09.068Z] throw err;
+[2026-04-23T09:59:09.068Z] ^
+[2026-04-23T09:59:09.068Z] 
+[2026-04-23T09:59:09.068Z] Error: Cannot find module '/home/ubuntu/investment_portal/node_modules/.pnpm/tsx@4.20.6/node_modules/tsx/dist/preflight.cjs'
+[2026-04-23T09:59:09.069Z] Require stack:
+[2026-04-23T09:59:09.069Z] - internal/preload
+[2026-04-23T09:59:09.069Z] at Function._resolveFilename (node:internal/modules/cjs/loader:1244:15)
+[2026-04-23T09:59:09.069Z] at Function._load (node:internal/modules/cjs/loader:1070:27)
+[2026-04-23T09:59:09.070Z] at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+[2026-04-23T09:59:09.070Z] at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+[2026-04-23T09:59:09.070Z] at Module.require (node:internal/modules/cjs/loader:1335:12)
+[2026-04-23T09:59:09.071Z] at node:internal/modules/cjs/loader:1834:12
+[2026-04-23T09:59:09.071Z] at loadPreloadModules (node:internal/process/pre_execution:726:5)
+[2026-04-23T09:59:09.071Z] at setupUserModules (node:internal/process/pre_execution:206:5)
+[2026-04-23T09:59:09.071Z] at prepareExecution (node:internal/process/pre_execution:159:5)
+[2026-04-23T09:59:09.072Z] at prepareMainThreadExecution (node:internal/process/pre_execution:54:10) {
+[2026-04-23T09:59:09.072Z] code: 'MODULE_NOT_FOUND',
+[2026-04-23T09:59:09.072Z] requireStack: [ 'internal/preload' ]
+[2026-04-23T09:59:09.072Z] }
+[2026-04-23T09:59:09.073Z] 
+[2026-04-23T09:59:09.073Z] Node.js v22.13.0
+[2026-04-24T06:42:29.886Z] Dev server stopped
+[2026-04-24T06:42:36.251Z] Starting dev server with command: pnpm run dev
+[2026-04-24T06:42:36.639Z] 
+[2026-04-24T06:42:36.639Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T06:42:36.640Z] > next dev
+[2026-04-24T06:42:36.640Z] 
+[2026-04-24T06:42:37.356Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T06:42:37.357Z] - Local:         http://localhost:3000
+[2026-04-24T06:42:37.357Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T06:42:37.357Z] ✓ Ready in 569ms
+[2026-04-24T06:42:37.603Z] Attention: Next.js now collects completely anonymous telemetry regarding usage.
+[2026-04-24T06:42:37.604Z] This information is used to shape Next.js' roadmap and prioritize features.
+[2026-04-24T06:42:37.604Z] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[2026-04-24T06:42:37.605Z] https://nextjs.org/telemetry
+[2026-04-24T06:42:37.605Z] 
+[2026-04-24T06:42:38.271Z] 
+[2026-04-24T06:43:19.240Z] Dev server process group stopped
+[2026-04-24T06:43:19.258Z] ELIFECYCLE  Command failed.
+[2026-04-24T06:43:19.263Z] [?25h
+[2026-04-24T06:43:19.270Z] Dev server exited with code -15
+[2026-04-24T06:43:22.254Z] Starting dev server with command: pnpm run dev
+[2026-04-24T06:43:22.647Z] 
+[2026-04-24T06:43:22.648Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T06:43:22.648Z] > next dev
+[2026-04-24T06:43:22.649Z] 
+[2026-04-24T06:43:23.345Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T06:43:23.346Z] - Local:         http://localhost:3000
+[2026-04-24T06:43:23.347Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T06:43:23.347Z] ✓ Ready in 555ms
+[2026-04-24T06:43:23.906Z] 
