@@ -1,4 +1,4 @@
-import * as functions from 'firebase-functions';
+import * as functions from 'firebase-functions/v2';
 import * as admin from 'firebase-admin';
 
 admin.initializeApp();
@@ -13,12 +13,19 @@ const db = admin.firestore();
  * - Sends notification to admin
  * - Creates audit log
  */
-export const onRequestCreated = functions.firestore
-  .document('investmentRequests/{requestId}')
-  .onCreate(async (snap, context) => {
+export const onRequestCreated = functions.firestore.onDocumentCreated(
+  'investmentRequests/{requestId}',
+  async (event) => {
     try {
+      const snap = event.data;
+      const requestId = event.params.requestId;
+
+      if (!snap) {
+        console.log('No data associated with the event');
+        return;
+      }
+
       const request = snap.data();
-      const requestId = context.params.requestId;
 
       // Validate request
       if (!request.userId || !request.type || !request.message) {
@@ -76,7 +83,8 @@ export const onRequestCreated = functions.firestore
       console.error('Error in onRequestCreated:', error);
       throw error;
     }
-  });
+  }
+);
 
 /**
  * Cloud Function: onRequestStatusChanged
@@ -85,13 +93,20 @@ export const onRequestCreated = functions.firestore
  * - Creates audit log
  * - Updates portfolio if executed
  */
-export const onRequestStatusChanged = functions.firestore
-  .document('investmentRequests/{requestId}')
-  .onUpdate(async (change, context) => {
+export const onRequestStatusChanged = functions.firestore.onDocumentUpdated(
+  'investmentRequests/{requestId}',
+  async (event) => {
     try {
+      const change = event.data;
+      const requestId = event.params.requestId;
+
+      if (!change) {
+        console.log('No data associated with the event');
+        return;
+      }
+
       const before = change.before.data();
       const after = change.after.data();
-      const requestId = context.params.requestId;
 
       // Only process if status changed
       if (before.status === after.status) {
@@ -150,7 +165,8 @@ export const onRequestStatusChanged = functions.firestore
       console.error('Error in onRequestStatusChanged:', error);
       throw error;
     }
-  });
+  }
+);
 
 /**
  * Cloud Function: onPriceUpdated
@@ -159,12 +175,19 @@ export const onRequestStatusChanged = functions.firestore
  * - Calculates portfolio value changes
  * - Creates audit log
  */
-export const onPriceUpdated = functions.firestore
-  .document('prices/{priceId}')
-  .onWrite(async (change, context) => {
+export const onPriceUpdated = functions.firestore.onDocumentWritten(
+  'prices/{priceId}',
+  async (event) => {
     try {
+      const change = event.data;
+      const priceId = event.params.priceId;
+
+      if (!change) {
+        console.log('No data associated with the event');
+        return;
+      }
+
       const after = change.after.data();
-      const priceId = context.params.priceId;
 
       if (!after) {
         return; // Document deleted
@@ -184,7 +207,8 @@ export const onPriceUpdated = functions.firestore
       console.error('Error in onPriceUpdated:', error);
       throw error;
     }
-  });
+  }
+);
 
 /**
  * Helper function: executeRequest
@@ -270,20 +294,20 @@ async function executeRequest(request: any, requestId: string) {
  * Generates a statement PDF for a client
  * Called by admin to generate statements
  */
-export const generateStatement = functions.https.onCall(async (data, context) => {
+export const generateStatement = functions.https.onCall(async (request) => {
   try {
     // Verify authentication
-    if (!context.auth) {
+    if (!request.auth) {
       throw new functions.https.HttpsError('unauthenticated', 'User must be authenticated');
     }
 
     // Verify admin role
-    const adminDoc = await db.collection('users').doc(context.auth.uid).get();
+    const adminDoc = await db.collection('users').doc(request.auth.uid).get();
     if (!adminDoc.exists || adminDoc.data()?.role !== 'admin') {
       throw new functions.https.HttpsError('permission-denied', 'User must be admin');
     }
 
-    const { userId, period } = data;
+    const { userId, period } = request.data;
 
     if (!userId || !period) {
       throw new functions.https.HttpsError(
@@ -362,8 +386,7 @@ export const generateStatement = functions.https.onCall(async (data, context) =>
  * Runs daily to clean up old notifications
  */
 export const cleanupOldNotifications = functions.pubsub
-  .schedule('every day 02:00')
-  .timeZone('UTC')
+  .onSchedule('every day 02:00')
   .onRun(async (context) => {
     try {
       const thirtyDaysAgo = new Date();

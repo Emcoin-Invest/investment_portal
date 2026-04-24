@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typescript: {
+    // Exclude functions directory from type checking
+    tsconfigPath: "./tsconfig.json",
+  },
 };
 
 export default nextConfig;

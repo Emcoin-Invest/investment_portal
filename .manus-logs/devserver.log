@@ -487,3 +487,153 @@
 [2026-04-24T07:01:01.049Z] GET /?from_webdev=1 200 in 39ms (next.js: 3ms, application-code: 36ms)
 [2026-04-24T07:01:02.437Z] HEAD / 200 in 37ms (next.js: 3ms, application-code: 34ms)
 [2026-04-24T07:01:04.945Z] GET /?from_webdev=1 200 in 41ms (next.js: 3ms, application-code: 38ms)
+[2026-04-24T07:01:17.446Z] GET / 200 in 64ms (next.js: 4ms, application-code: 60ms)
+[2026-04-24T07:02:30.809Z] Dev server process group stopped
+[2026-04-24T07:02:30.827Z] ELIFECYCLE  Command failed.
+[2026-04-24T07:02:30.899Z] [?25h
+[2026-04-24T07:02:30.903Z] Dev server exited with code -15
+[2026-04-24T07:02:33.820Z] Starting dev server with command: pnpm run dev
+[2026-04-24T07:02:34.228Z] 
+[2026-04-24T07:02:34.229Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T07:02:34.229Z] > next dev
+[2026-04-24T07:02:34.230Z] 
+[2026-04-24T07:02:34.896Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T07:02:34.897Z] - Local:         http://localhost:3000
+[2026-04-24T07:02:34.898Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T07:02:34.898Z] ✓ Ready in 493ms
+[2026-04-24T07:02:35.572Z] 
+[2026-04-24T07:02:36.995Z] GET / 200 in 921ms (next.js: 420ms, application-code: 501ms)
+[2026-04-24T07:02:37.288Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T07:02:37.289Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:02:37.290Z] 
+[2026-04-24T07:02:37.290Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:02:37.290Z] 
+[2026-04-24T07:02:37.291Z] // next.config.js
+[2026-04-24T07:02:37.291Z] module.exports = {
+[2026-04-24T07:02:37.291Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T07:02:37.292Z] }
+[2026-04-24T07:02:37.292Z] 
+[2026-04-24T07:02:37.292Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:02:52.447Z] GET /?from_webdev=1 200 in 50ms (next.js: 5ms, application-code: 45ms)
+[2026-04-24T07:02:53.557Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer".
+[2026-04-24T07:02:53.558Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:02:53.559Z] 
+[2026-04-24T07:02:53.559Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:02:53.559Z] 
+[2026-04-24T07:02:53.560Z] // next.config.js
+[2026-04-24T07:02:53.560Z] module.exports = {
+[2026-04-24T07:02:53.560Z] allowedDevOrigins: ['3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer'],
+[2026-04-24T07:02:53.560Z] }
+[2026-04-24T07:02:53.561Z] 
+[2026-04-24T07:02:53.561Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:03:00.313Z] ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[2026-04-24T07:03:00.776Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T07:03:00.777Z] - Local:         http://localhost:3000
+[2026-04-24T07:03:00.778Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T07:03:00.778Z] ✓ Ready in 394ms
+[2026-04-24T07:03:01.471Z] 
+[2026-04-24T07:03:01.474Z] ⨯ ERROR: This build is using Turbopack, with a `webpack` config and no `turbopack` config.
+[2026-04-24T07:03:01.474Z] This may be a mistake.
+[2026-04-24T07:03:01.475Z] 
+[2026-04-24T07:03:01.475Z] As of Next.js 16 Turbopack is enabled by default and
+[2026-04-24T07:03:01.475Z] custom webpack configurations may need to be migrated to Turbopack.
+[2026-04-24T07:03:01.476Z] 
+[2026-04-24T07:03:01.476Z] NOTE: your `webpack` config may have been added by a configuration plugin.
+[2026-04-24T07:03:01.476Z] 
+[2026-04-24T07:03:01.476Z] To configure Turbopack, see https://nextjs.org/docs/app/api-reference/next-config-js/turbopack
+[2026-04-24T07:03:01.477Z] 
+[2026-04-24T07:03:01.477Z] TIP: Many applications work fine under Turbopack with no configuration,
+[2026-04-24T07:03:01.477Z] if that is the case for you, you can silence this error by passing the
+[2026-04-24T07:03:01.478Z] `--turbopack` or `--webpack` flag explicitly or simply setting an
+[2026-04-24T07:03:01.478Z] empty turbopack config in your Next config file (e.g. `turbopack: {}`).
+[2026-04-24T07:03:01.546Z] [?25h
+[2026-04-24T07:03:01.571Z] ELIFECYCLE  Command failed with exit code 1.
+[2026-04-24T07:03:01.591Z] Dev server exited with code 1
+[2026-04-24T07:03:28.472Z] Starting dev server with command: pnpm run dev
+[2026-04-24T07:03:28.877Z] 
+[2026-04-24T07:03:28.877Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T07:03:28.878Z] > next dev
+[2026-04-24T07:03:28.878Z] 
+[2026-04-24T07:03:29.478Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T07:03:29.479Z] - Local:         http://localhost:3000
+[2026-04-24T07:03:29.480Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T07:03:29.480Z] ✓ Ready in 465ms
+[2026-04-24T07:03:29.520Z] ⚠ Invalid next.config.ts options detected:
+[2026-04-24T07:03:29.521Z] ⚠     Unrecognized key(s) in object: 'turbopack' at "experimental"
+[2026-04-24T07:03:29.521Z] ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+[2026-04-24T07:03:30.133Z] - Experiments (use with caution):
+[2026-04-24T07:03:30.134Z] ? turbopack (invalid experimental key)
+[2026-04-24T07:03:30.136Z] 
+[2026-04-24T07:03:32.230Z] HEAD /?from_webdev=1 200 in 1344ms (next.js: 665ms, application-code: 679ms)
+[2026-04-24T07:03:32.234Z] HEAD /?from_webdev=1 200 in 1348ms (next.js: 784ms, application-code: 565ms)
+[2026-04-24T07:03:32.235Z] HEAD /?from_webdev=1 200 in 1352ms (next.js: 819ms, application-code: 534ms)
+[2026-04-24T07:03:32.239Z] HEAD /?from_webdev=1 200 in 2.1s (next.js: 1622ms, application-code: 468ms)
+[2026-04-24T07:03:32.241Z] HEAD /?from_webdev=1 200 in 2.1s (next.js: 1637ms, application-code: 449ms)
+[2026-04-24T07:03:32.243Z] HEAD /?from_webdev=1 200 in 2.1s (next.js: 1654ms, application-code: 433ms)
+[2026-04-24T07:03:32.330Z] HEAD /?from_webdev=1 200 in 65ms (next.js: 5ms, application-code: 60ms)
+[2026-04-24T07:03:32.346Z] HEAD /?from_webdev=1 200 in 79ms (next.js: 40ms, application-code: 39ms)
+[2026-04-24T07:03:32.401Z] GET /?from_webdev=1 200 in 37ms (next.js: 5ms, application-code: 32ms)
+[2026-04-24T07:03:32.415Z] GET / 200 in 1635ms (next.js: 955ms, application-code: 680ms)
+[2026-04-24T07:03:32.455Z] GET /?from_webdev=1 200 in 37ms (next.js: 4ms, application-code: 33ms)
+[2026-04-24T07:03:32.514Z] GET /?from_webdev=1 200 in 52ms (next.js: 5ms, application-code: 47ms)
+[2026-04-24T07:03:32.667Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T07:03:32.668Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:03:32.668Z] 
+[2026-04-24T07:03:32.668Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:03:32.669Z] 
+[2026-04-24T07:03:32.669Z] // next.config.js
+[2026-04-24T07:03:32.669Z] module.exports = {
+[2026-04-24T07:03:32.670Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T07:03:32.670Z] }
+[2026-04-24T07:03:32.670Z] 
+[2026-04-24T07:03:32.671Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:03:32.673Z] GET /?from_webdev=1 200 in 49ms (next.js: 3ms, application-code: 46ms)
+[2026-04-24T07:03:32.826Z] HEAD / 200 in 32ms (next.js: 2ms, application-code: 30ms)
+[2026-04-24T07:03:32.881Z] GET /?from_webdev=1 200 in 47ms (next.js: 3ms, application-code: 44ms)
+[2026-04-24T07:03:33.813Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer".
+[2026-04-24T07:03:33.814Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:03:33.815Z] 
+[2026-04-24T07:03:33.815Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:03:33.815Z] 
+[2026-04-24T07:03:33.816Z] // next.config.js
+[2026-04-24T07:03:33.816Z] module.exports = {
+[2026-04-24T07:03:33.816Z] allowedDevOrigins: ['3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer'],
+[2026-04-24T07:03:33.817Z] }
+[2026-04-24T07:03:33.817Z] 
+[2026-04-24T07:03:33.817Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:03:34.047Z] GET /?from_webdev=1 200 in 41ms (next.js: 3ms, application-code: 38ms)
+[2026-04-24T07:03:42.511Z] ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+[2026-04-24T07:03:42.935Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T07:03:42.936Z] - Local:         http://localhost:3000
+[2026-04-24T07:03:42.936Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T07:03:42.936Z] ✓ Ready in 364ms
+[2026-04-24T07:03:43.540Z] 
+[2026-04-24T07:03:45.256Z] GET /?from_webdev=1 200 in 1613ms (next.js: 1143ms, application-code: 470ms)
+[2026-04-24T07:03:46.872Z] Dev server process group stopped
+[2026-04-24T07:03:46.890Z] ELIFECYCLE  Command failed.
+[2026-04-24T07:03:46.973Z] [?25h
+[2026-04-24T07:03:46.978Z] Dev server exited with code -15
+[2026-04-24T07:03:49.904Z] Starting dev server with command: pnpm run dev
+[2026-04-24T07:03:50.293Z] 
+[2026-04-24T07:03:50.294Z] > investment-portal@1.0.0 dev /home/ubuntu/investment_portal
+[2026-04-24T07:03:50.294Z] > next dev
+[2026-04-24T07:03:50.294Z] 
+[2026-04-24T07:03:50.875Z] ▲ Next.js 16.2.4 (Turbopack)
+[2026-04-24T07:03:50.876Z] - Local:         http://localhost:3000
+[2026-04-24T07:03:50.877Z] - Network:       http://169.254.0.21:3000
+[2026-04-24T07:03:50.877Z] ✓ Ready in 448ms
+[2026-04-24T07:03:51.505Z] 
+[2026-04-24T07:03:53.339Z] HEAD / 200 in 1521ms (next.js: 976ms, application-code: 545ms)
+[2026-04-24T07:03:53.377Z] GET / 200 in 1161ms (next.js: 1058ms, application-code: 103ms)
+[2026-04-24T07:03:53.634Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+[2026-04-24T07:03:53.635Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:03:53.636Z] 
+[2026-04-24T07:03:53.636Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:03:53.636Z] 
+[2026-04-24T07:03:53.637Z] // next.config.js
+[2026-04-24T07:03:53.637Z] module.exports = {
+[2026-04-24T07:03:53.637Z] allowedDevOrigins: ['127.0.0.1'],
+[2026-04-24T07:03:53.638Z] }
+[2026-04-24T07:03:53.638Z] 
+[2026-04-24T07:03:53.638Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:03:54.928Z] GET /?from_webdev=1 200 in 45ms (next.js: 4ms, application-code: 41ms)
