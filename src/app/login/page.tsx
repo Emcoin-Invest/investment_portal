@@ -89,6 +89,7 @@ export default function LoginPage() {
           name: result.user.displayName || 'Google User',
           role: 'client', // New users are clients by default
           status: 'active',
+          createdAt: new Date(),
           updatedAt: new Date(),
         });
         userData = await getUser(uid);
