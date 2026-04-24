@@ -637,3 +637,21 @@
 [2026-04-24T07:03:53.638Z] 
 [2026-04-24T07:03:53.638Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
 [2026-04-24T07:03:54.928Z] GET /?from_webdev=1 200 in 45ms (next.js: 4ms, application-code: 41ms)
+[2026-04-24T07:04:15.052Z] GET / 200 in 41ms (next.js: 3ms, application-code: 38ms)
+[2026-04-24T07:07:34.184Z] ⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer".
+[2026-04-24T07:07:34.185Z] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[2026-04-24T07:07:34.186Z] 
+[2026-04-24T07:07:34.186Z] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[2026-04-24T07:07:34.186Z] 
+[2026-04-24T07:07:34.187Z] // next.config.js
+[2026-04-24T07:07:34.187Z] module.exports = {
+[2026-04-24T07:07:34.187Z] allowedDevOrigins: ['3000-ivkc1eejv8yfh85srmmvn-3231ddd4.sg1.manus.computer'],
+[2026-04-24T07:07:34.188Z] }
+[2026-04-24T07:07:34.188Z] 
+[2026-04-24T07:07:34.188Z] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[2026-04-24T07:56:25.536Z] GET /?from_webdev=1 200 in 60ms (next.js: 5ms, application-code: 55ms)
+[2026-04-24T07:56:25.695Z] GET /?from_webdev=1 200 in 51ms (next.js: 3ms, application-code: 48ms)
+[2026-04-24T07:56:47.019Z] GET /?from_webdev=1 200 in 52ms (next.js: 4ms, application-code: 48ms)
+[2026-04-24T08:13:51.003Z] GET /?from_webdev=1 200 in 55ms (next.js: 4ms, application-code: 50ms)
+[2026-04-24T08:13:52.591Z] HEAD / 200 in 46ms (next.js: 4ms, application-code: 42ms)
+[2026-04-24T08:13:53.214Z] GET /?from_webdev=1 200 in 43ms (next.js: 3ms, application-code: 40ms)
