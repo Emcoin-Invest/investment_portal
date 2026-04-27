@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ClientLayout } from '@/components/ClientLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { getUserPortfolioPositions, getLatestPrice, getAllProducts } from '@/lib/firestore';
+import { getUserPortfolioPositions, getLatestPrice, getAllProducts } from '@/lib/api';
 import type { PortfolioPosition, Product, Price } from '@/lib/types';
 import { PieChart as PieChartIcon } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
 import { Modal } from '@/components/Modal';
 import { useAuth } from '@/contexts/AuthContext';
-import { getAllRequests, getUser, getProduct, updateRequest } from '@/lib/firestore';
+import { getAllRequests, getUser, getProduct, updateRequest } from '@/lib/api';
 import type { InvestmentRequest, User, Product } from '@/lib/types';
 import { CheckCircle, XCircle, Clock } from 'lucide-react';
 

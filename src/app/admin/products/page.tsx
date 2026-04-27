@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { getAllProducts, createProduct, updateProduct } from '@/lib/firestore';
+import { getAllProducts, createProduct, updateProduct } from '@/lib/api';
 import type { Product, ProductType, PricingMode } from '@/lib/types';
 import { Plus, Edit2 } from 'lucide-react';
 import { nanoid } from 'nanoid';

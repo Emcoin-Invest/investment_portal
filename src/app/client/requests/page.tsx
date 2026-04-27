@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ClientLayout } from '@/components/ClientLayout';
 import { Toast, ToastContainer, useToast } from '@/components/Toast';
 import { useAuth } from '@/contexts/AuthContext';
-import { getUserRequests, createRequest, getAllProducts } from '@/lib/firestore';
+import { getUserRequests, createRequest, getAllProducts } from '@/lib/api';
 import type { InvestmentRequest, Product, RequestType } from '@/lib/types';
 import { Plus, CheckCircle, Clock, XCircle, AlertCircle } from 'lucide-react';
 import { nanoid } from 'nanoid';

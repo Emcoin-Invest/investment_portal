@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ClientLayout } from '@/components/ClientLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { getUserStatements } from '@/lib/firestore';
+import { getUserStatements } from '@/lib/api';
 import type { Statement } from '@/lib/types';
 import { Download, FileText } from 'lucide-react';
 

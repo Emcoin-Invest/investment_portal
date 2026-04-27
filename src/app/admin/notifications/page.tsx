@@ -3,10 +3,16 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { db } from '@/lib/firebase';
-import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
-import type { Notification } from '@/lib/types';
 import { Bell, AlertCircle } from 'lucide-react';
+
+interface Notification {
+  id: string;
+  type: string;
+  title: string;
+  message: string;
+  createdAt: string;
+  read: boolean;
+}
 
 export default function AdminNotifications() {
   const { user } = useAuth();
@@ -15,37 +21,26 @@ export default function AdminNotifications() {
   const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user?.id) return;
 
-    setLoading(true);
-
-    // Subscribe to admin's notifications
-    const q = query(
-      collection(db, 'notifications'),
-      where('userId', '==', user.id),
-      orderBy('createdAt', 'desc')
-    );
-
-    const unsubscribe = onSnapshot(
-      q,
-      (snapshot) => {
-        const notifs = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Notification[];
-
-        setNotifications(notifs);
-        setUnreadCount(notifs.filter((n) => !n.read).length);
-        setLoading(false);
-      },
-      (error) => {
-        console.error('Error loading notifications:', error);
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notifications?userId=${user.id}`);
+        if (!response.ok) throw new Error('Failed to fetch notifications');
+        const data = await response.json();
+        setNotifications(data);
+        setUnreadCount(data.filter((n: Notification) => !n.read).length);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      } finally {
         setLoading(false);
       }
-    );
+    };
 
-    return () => unsubscribe();
-  }, [user]);
+    fetchNotifications();
+    const interval = setInterval(fetchNotifications, 5000);
+    return () => clearInterval(interval);
+  }, [user?.id]);
 
   const getNotificationIcon = (type: string) => {
     switch (type) {

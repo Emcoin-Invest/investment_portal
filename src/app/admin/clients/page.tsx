@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { getAllUsers, updateUser, createUser } from '@/lib/firestore';
+import { getAllUsers, updateUser, createUser } from '@/lib/api';
 import type { User } from '@/lib/types';
 import { Plus, Edit2, Trash2 } from 'lucide-react';
 import { nanoid } from 'nanoid';

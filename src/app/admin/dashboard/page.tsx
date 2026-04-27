@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
 import { useAuth } from '@/contexts/AuthContext';
-import { getAllUsers, getAllRequests, getUserPortfolioPositions, getLatestPrice } from '@/lib/firestore';
+import { getAllUsers, getAllRequests, getUserPortfolioPositions, getLatestPrice } from '@/lib/api';
 import type { User, InvestmentRequest, PortfolioPosition, Price } from '@/lib/types';
 import { Users, TrendingUp, Clock, CheckCircle } from 'lucide-react';
 
