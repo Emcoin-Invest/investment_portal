@@ -1,76 +1,80 @@
-# Investment Portal - Project TODO
+# Investment Portal - Firebase → Local Backend Migration
 
-## Phase 1: Project Setup & Configuration
-- [x] Firebase configuration and environment variables
-- [x] Firestore schema design
-- [x] Firestore security rules
-- [x] Firebase Storage rules
+## Phase 1: Backend Setup
+- [ ] Remove Firebase dependencies from package.json
+- [ ] Set up Express.js server
+- [ ] Configure SQLite database with better-sqlite3
+- [ ] Implement JWT authentication middleware
+- [ ] Create database connection and initialization
 
-## Phase 2: Authentication & Routing
-- [x] Firebase Authentication setup (Email/Password + Google)
-- [x] User metadata storage in Firestore
-- [x] Role-based routing middleware
-- [x] Protected routes for client and admin sections
-- [x] Login/logout pages and flows
+## Phase 2: Database Schema
+- [ ] Create users table (id, email, password, name, role, createdAt)
+- [ ] Create clients table (id, userId, accountNumber, status)
+- [ ] Create products table (id, name, description, category, riskLevel)
+- [ ] Create portfolios table (id, clientId, productId, quantity, purchasePrice, purchaseDate)
+- [ ] Create holdings table (id, portfolioId, symbol, quantity, price, value)
+- [ ] Create requests table (id, clientId, type, status, amount, description, createdAt, updatedAt)
+- [ ] Create statements table (id, clientId, fileName, fileUrl, uploadedAt)
+- [ ] Create notifications table (id, userId, type, title, message, read, createdAt)
+- [ ] Seed initial admin user and sample data
 
-## Phase 3: Client Portal - Core Pages
-- [x] Client Dashboard page (portfolio summary, performance charts, key metrics)
-- [x] Client Portfolio page (holdings, asset allocation, historical performance)
-- [x] Client Statements page (view and download statements)
-- [x] Client Requests page (submit and track service requests)
+## Phase 3: Authentication API
+- [ ] POST /api/auth/register - User registration with password hashing
+- [ ] POST /api/auth/login - User login with JWT token generation
+- [ ] POST /api/auth/logout - User logout (token blacklist)
+- [ ] GET /api/auth/me - Get current user from JWT
+- [ ] POST /api/auth/refresh - Refresh JWT token
+- [ ] Implement JWT middleware for route protection
 
-## Phase 4: Admin Portal - Core Pages
-- [x] Admin Dashboard page (overview of clients, total AUM, recent activity)
-- [x] Admin Clients page (list, view, manage individual client accounts)
-- [x] Admin Products page (define investment products)
-- [x] Admin Pricing page (manage fee structures and manual pricing)
-- [x] Admin Portfolios page (manage client portfolio positions)
-- [x] Admin Requests page (review, approve, reject client requests)
-- [x] Admin Statements page (upload and manage client statements)
+## Phase 4: Client Portal API
+- [ ] GET /api/client/dashboard - Dashboard summary (portfolio value, performance)
+- [ ] GET /api/client/portfolio - Portfolio holdings with calculations
+- [ ] GET /api/client/statements - List client statements
+- [ ] GET /api/client/statements/:id/download - Download statement file
+- [ ] GET /api/client/requests - List client requests
+- [ ] POST /api/client/requests - Create new request
+- [ ] GET /api/client/notifications - List client notifications
+- [ ] PUT /api/client/notifications/:id/read - Mark notification as read
 
-## Phase 5: Shared Components & UI
-- [x] Layout components (header, sidebar navigation)
-- [x] Card-based dashboard components
-- [x] Table components for data display
-- [x] Form components for data entry
-- [x] Chart components (pie, line, bar charts with Recharts)
-- [x] Loading states and skeletons
-- [x] Error states and empty states
-- [x] Modal/dialog components
-- [x] Notification/toast components
+## Phase 5: Admin Portal API
+- [ ] GET /api/admin/dashboard - Admin dashboard (total AUM, client count, recent activity)
+- [ ] GET /api/admin/clients - List all clients with pagination
+- [ ] GET /api/admin/clients/:id - Get client details with portfolio
+- [ ] POST /api/admin/clients - Create new client
+- [ ] PUT /api/admin/clients/:id - Update client information
+- [ ] GET /api/admin/products - List all products
+- [ ] POST /api/admin/products - Create new product
+- [ ] PUT /api/admin/products/:id - Update product
+- [ ] DELETE /api/admin/products/:id - Delete product
+- [ ] GET /api/admin/pricing - List pricing tiers
+- [ ] POST /api/admin/pricing - Create pricing tier
+- [ ] GET /api/admin/requests - List all requests with filtering
+- [ ] PUT /api/admin/requests/:id/approve - Approve request with notification
+- [ ] PUT /api/admin/requests/:id/reject - Reject request with notification
+- [ ] GET /api/admin/statements - List all statements
+- [ ] POST /api/admin/statements - Upload statement file
+- [ ] GET /api/admin/notifications - List admin notifications
 
-## Phase 6: Business Logic & Calculations
-- [x] Portfolio value calculation (quantity * latest price)
-- [x] Unrealized P&L calculation
-- [x] Asset allocation percentages
-- [x] Total portfolio metrics
+## Phase 6: Frontend Updates
+- [ ] Remove all Firebase imports
+- [ ] Update AuthContext to use Express API
+- [ ] Replace Firestore queries with API calls
+- [ ] Update environment variables (.env.local)
+- [ ] Remove Firebase configuration file
+- [ ] Update all pages to use new API endpoints
 
-## Phase 7: Cloud Functions & Notifications
-- [x] Cloud Function: Create request with validation and timestamps
-- [x] Cloud Function: Update request status with client notification
-- [x] Cloud Function: Admin notification on new request submission
-- [x] In-app notification system for clients (Notifications page with Firestore sync)
-- [x] In-app notification system for admins (Notifications page with Firestore sync)
-- [x] Notification delivery and persistence (Toast + Firestore)
+## Phase 7: Testing & Verification
+- [ ] Test user registration and login flow
+- [ ] Test client portal (dashboard, portfolio, requests)
+- [ ] Test admin portal (clients, products, requests)
+- [ ] Test notifications system
+- [ ] Test file uploads and downloads
+- [ ] Test role-based access control
+- [ ] Test error handling and validation
 
-## Phase 8: Premium Design & Polish
-- [x] Color scheme and typography (elegant, professional)
-- [x] Responsive design (mobile, tablet, desktop)
-- [x] Micro-interactions and transitions (animations, hover effects)
-- [x] Hover states and visual feedback (buttons, cards, links)
-- [x] Accessibility (WCAG compliance - semantic HTML, focus states)
-- [x] Dark mode support (optional - CSS variables prepared)
-
-## Phase 9: Integration & Testing
-- [x] End-to-end testing of auth flows
-- [x] Client portal workflow testing
-- [x] Admin portal workflow testing
-- [x] Notification system testing
-- [x] Security testing (role-based access)
-- [x] Performance optimization
-
-## Phase 10: Documentation & Deployment
-- [x] Setup and deployment guide
-- [x] Firebase configuration documentation
-- [x] Environment variables documentation
-- [x] Final testing and QA
+## Phase 8: Documentation & Deployment
+- [ ] Create API documentation
+- [ ] Create database schema documentation
+- [ ] Create setup guide for local development
+- [ ] Create docker-compose for containerization
+- [ ] Create production deployment guide
