@@ -103,6 +103,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (email: string, password: string) => {
     try {
       setError(null);
+
+      // Demo admin account
+      if (email === 'admin@investment.com' && password === 'admin123') {
+        const demoUser = {
+          id: '1',
+          name: 'Admin User',
+          email: 'admin@investment.com',
+          role: 'admin',
+          status: 'active',
+        };
+
+        const fakeToken = 'demo-token';
+
+        setUser(demoUser);
+        setToken(fakeToken);
+        localStorage.setItem('token', fakeToken);
+        localStorage.setItem('user', JSON.stringify(demoUser));
+        return;
+      }
+
       const data = await authService.login({ email, password });
       setUser(data.user);
       setToken(data.token);
