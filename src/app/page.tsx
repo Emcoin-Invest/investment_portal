@@ -9,19 +9,24 @@ export default function Home() {
   const { user, isAuthenticated, loading } = useAuth();
 
   useEffect(() => {
-    if (isAuthenticated && user && !loading) {
-      const redirectPath =
-        user.role === 'admin'
-          ? '/admin/dashboard'
-          : '/client/dashboard';
-
-      router.push(redirectPath);
+    if (!loading) {
+      if (isAuthenticated && user) {
+        const redirectPath =
+          user.role === 'admin'
+            ? '/admin/dashboard'
+            : '/client/dashboard';
+        router.push(redirectPath);
+      } else {
+        router.push('/login');
+      }
     }
   }, [isAuthenticated, user, loading, router]);
 
-  if (!isAuthenticated || loading) {
-    return null; // أو loading UI
-  }
-
-  return null;
+  // Show a simple loading state instead of a blank screen
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#0a0a0a] text-white">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+      <p className="text-gray-400">Loading Investment Portal...</p>
+    </div>
+  );
 }

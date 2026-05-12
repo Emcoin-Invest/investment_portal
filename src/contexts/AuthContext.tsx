@@ -19,7 +19,6 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const TOKEN_REFRESH_INTERVAL = 5 * 60 * 1000; // 5 minutes
-const TOKEN_WARNING_TIME = 1 * 60 * 1000; // 1 minute before expiry
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -28,7 +27,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [refreshTimer, setRefreshTimer] = useState<NodeJS.Timeout | null>(null);
 
-  // Clear old expired tokens
   const clearInvalidSession = useCallback(() => {
     setUser(null);
     setToken(null);
@@ -36,7 +34,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem('user');
   }, []);
 
-  // Validate token on mount
   useEffect(() => {
     const validateSession = async () => {
       try {
@@ -48,13 +45,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           return;
         }
 
-        // Try to validate the stored session by fetching current user
         try {
           const currentUser = await authService.getCurrentUser();
           setToken(storedToken);
           setUser(currentUser);
         } catch {
-          // Token is invalid, clear session
           clearInvalidSession();
         }
       } catch (err) {
@@ -68,41 +63,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     validateSession();
   }, [clearInvalidSession]);
 
-  // Auto-refresh token periodically
   useEffect(() => {
     if (!token || !user) return;
 
-    const setupRefreshTimer = () => {
-      const timer = setInterval(async () => {
-        try {
-          const response = await authService.refresh();
+    const timer = setInterval(async () => {
+      try {
+        const response = await authService.refresh();
+        if (response && response.token) {
           setToken(response.token);
           localStorage.setItem('token', response.token);
-        } catch (err) {
-          console.error('Token refresh failed:', err);
-          clearInvalidSession();
         }
-      }, TOKEN_REFRESH_INTERVAL);
+      } catch (err) {
+        console.error('Token refresh failed:', err);
+      }
+    }, TOKEN_REFRESH_INTERVAL);
 
-      setRefreshTimer(timer);
-      return timer;
-    };
-
-    const timer = setupRefreshTimer();
-
-    return () => {
-      if (timer) clearInterval(timer);
-    };
-  }, [token, user, clearInvalidSession]);
+    setRefreshTimer(timer);
+    return () => clearInterval(timer);
+  }, [token, user]);
 
   const refreshToken = useCallback(async () => {
     try {
       setError(null);
       const response = await authService.refresh();
-      setToken(response.token);
-      setUser(response.user);
-      localStorage.setItem('token', response.token);
-      localStorage.setItem('user', JSON.stringify(response.user));
+      if (response && response.token) {
+        setToken(response.token);
+        setUser(response.user);
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
+      }
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : 'Token refresh failed';
       setError(errorMsg);
@@ -115,10 +104,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       setError(null);
       const data = await authService.login({ email, password });
-
       setUser(data.user);
       setToken(data.token);
-
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
     } catch (err) {
@@ -132,10 +119,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       setError(null);
       const data = await authService.register({ email, password, name });
-
       setUser(data.user);
       setToken(data.token);
-
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
     } catch (err) {
@@ -147,20 +132,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      // Clear timer before logout
-      if (refreshTimer) {
-        clearInterval(refreshTimer);
-        setRefreshTimer(null);
-      }
-
+      if (refreshTimer) clearInterval(refreshTimer);
       await authService.logout();
       clearInvalidSession();
     } catch (err) {
-      const errorMsg = err instanceof Error ? err.message : 'Logout failed';
-      setError(errorMsg);
-      // Still clear local session on error
       clearInvalidSession();
-      throw err;
     }
   };
 
