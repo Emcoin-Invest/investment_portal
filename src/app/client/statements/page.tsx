@@ -19,7 +19,7 @@ export default function ClientStatements() {
       try {
         setLoading(true);
         setError(null);
-        const userStatements = await getUserStatements(user.id);
+        const userStatements = await getUserStatements(String(user.id));
         setStatements(userStatements);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load statements');

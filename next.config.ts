@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     // Exclude functions directory from type checking
     tsconfigPath: "./tsconfig.json",
   },
-  // Skip static generation for special pages
-  staticPageGenerationTimeout: 0,
+  // Allow static generation time for pages
+  staticPageGenerationTimeout: 60,
 };
 
 export default nextConfig;

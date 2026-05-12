@@ -2,18 +2,18 @@
 
 import React from 'react';
 
-interface TableColumn {
-  key: string;
+interface TableColumn<T extends object> {
+  key: Extract<keyof T, string>;
   label: string;
   sortable?: boolean;
   align?: 'left' | 'center' | 'right';
-  render?: (value: any, row: any) => React.ReactNode;
+  render?: (value: unknown, row: T) => React.ReactNode;
   width?: string;
 }
 
-interface PremiumTableProps {
-  columns: TableColumn[];
-  data: any[];
+interface PremiumTableProps<T extends object> {
+  columns: TableColumn<T>[];
+  data: T[];
   onSort?: (column: string, direction: 'asc' | 'desc') => void;
   striped?: boolean;
   hoverable?: boolean;
@@ -21,7 +21,7 @@ interface PremiumTableProps {
   loading?: boolean;
 }
 
-export function PremiumTable({
+export function PremiumTable<T extends object>({
   columns,
   data,
   onSort,
@@ -29,11 +29,11 @@ export function PremiumTable({
   hoverable = true,
   compact = false,
   loading = false,
-}: PremiumTableProps) {
+}: PremiumTableProps<T>) {
   const [sortColumn, setSortColumn] = React.useState<string | null>(null);
   const [sortDirection, setSortDirection] = React.useState<'asc' | 'desc'>('asc');
 
-  const handleSort = (columnKey: string) => {
+  const handleSort = (columnKey: Extract<keyof T, string>) => {
     const newDirection = sortColumn === columnKey && sortDirection === 'asc' ? 'desc' : 'asc';
     setSortColumn(columnKey);
     setSortDirection(newDirection);
@@ -105,7 +105,14 @@ export function PremiumTable({
                       key={`${rowIdx}-${column.key}`}
                       className={`px-6 py-4 text-sm text-slate-700 ${alignClass[column.align || 'left']}`}
                     >
-                      {column.render ? column.render(row[column.key], row) : row[column.key]}
+                      {(() => {
+                        const cellValue = row[column.key as keyof T];
+                        return column.render
+                          ? column.render(cellValue, row)
+                          : cellValue === null || cellValue === undefined
+                            ? ''
+                            : String(cellValue);
+                      })()}
                     </td>
                   ))}
                 </tr>

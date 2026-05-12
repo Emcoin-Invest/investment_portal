@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/AdminLayout';
@@ -6,13 +6,21 @@ import { useAuth } from '@/contexts/AuthContext';
 import { getAllUsers, updateUser, createUser } from '@/lib/api';
 import type { User } from '@/lib/types';
 import { Plus, Edit2, X, Check } from 'lucide-react';
-import { nanoid } from 'nanoid';
+// Removed unused import to avoid runtime issues and TS errors
 import { Badge } from '@/components/PremiumTable';
 import { EmptyState, ErrorState, InfoMessage } from '@/components/StateMessages';
 import { ShimmerTable } from '@/components/LoadingShimmer';
 
+// Type guard for API responses
+function isUser(obj: unknown): obj is User {
+  return (
+    typeof obj === 'object' && obj !== null &&
+    'id' in obj && 'email' in obj && 'name' in obj &&
+    'role' in obj && 'status' in obj && 'createdAt' in obj && 'updatedAt' in obj
+  );
+}
+
 export default function AdminClients() {
-  const { user } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,8 +38,14 @@ export default function AdminClients() {
       try {
         setLoading(true);
         setError(null);
-        const allUsers = await getAllUsers();
-        setUsers(allUsers.filter((u) => u.role === 'client'));
+        const raw = typeof getAllUsers === 'function' ? await getAllUsers() : undefined;
+        if (Array.isArray(raw)) {
+          const valid = raw.filter(isUser);
+          setUsers(valid.filter((u): u is User => u.role === 'client'));
+        } else {
+          setError('Failed to load clients');
+          setUsers([]);
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load clients');
       } finally {
@@ -55,8 +69,7 @@ export default function AdminClients() {
         });
       } else {
         // Create new user
-        const userId = nanoid();
-        await createUser(userId, {
+        await createUser({
           email: formData.email,
           name: formData.name,
           role: 'client',
@@ -67,8 +80,13 @@ export default function AdminClients() {
       }
 
       // Refresh users list
-      const allUsers = await getAllUsers();
-      setUsers(allUsers.filter((u) => u.role === 'client'));
+      const raw = typeof getAllUsers === 'function' ? await getAllUsers() : undefined;
+      if (Array.isArray(raw)) {
+        const valid = raw.filter(isUser);
+        setUsers(valid.filter((u): u is User => u.role === 'client'));
+      } else {
+        setError('Failed to refresh clients');
+      }
 
       // Reset form
       setFormData({ name: '', email: '', status: 'active' });

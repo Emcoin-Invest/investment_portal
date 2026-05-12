@@ -68,3 +68,7 @@ export function ShimmerLoadingState() {
     </div>
   );
 }
+
+export function LoadingShimmer() {
+  return <ShimmerLoadingState />;
+}

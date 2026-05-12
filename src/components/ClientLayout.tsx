@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import { ClientGuard } from './ClientGuard';
 import { Menu, X, LogOut, Bell, LayoutDashboard, Briefcase, FileText, Send, MessageSquare, ChevronRight } from 'lucide-react';
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
@@ -27,8 +28,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
     { href: '/client/notifications', label: 'Notifications', icon: MessageSquare },
   ];
 
+  // Wrap with ClientGuard to ensure only clients can see this layout
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100">
+    <ClientGuard>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100">
       {/* Top Navigation Bar - Premium styling */}
       <nav className="sticky top-0 z-40 glass border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,6 +143,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12 animate-fadeIn">
         {children}
       </main>
-    </div>
+      </div>
+    </ClientGuard>
   );
 }

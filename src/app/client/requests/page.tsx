@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { ClientLayout } from '@/components/ClientLayout';
 import { Toast, ToastContainer, useToast } from '@/components/Toast';
 import { useAuth } from '@/contexts/AuthContext';
@@ -50,7 +50,7 @@ export default function ClientRequests() {
     loadData();
   }, [user, showError]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!user) return;
 
@@ -59,8 +59,9 @@ export default function ClientRequests() {
       setError(null);
 
       const requestId = nanoid();
-      await createRequest(requestId, {
-        userId: user.id,
+      await createRequest({
+        id: requestId,
+        userId: String(user.id),
         type: formData.type as RequestType,
         productId: formData.productId || undefined,
         amount: formData.amount ? parseFloat(formData.amount) : undefined,

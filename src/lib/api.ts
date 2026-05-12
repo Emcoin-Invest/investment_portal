@@ -1,4 +1,6 @@
 // API client for local Express backend
+import { User, Product, InvestmentRequest } from './types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3002';
 
 export async function getUserPortfolioPositions(userId: string) {
@@ -25,17 +27,19 @@ export async function getUserStatements(userId: string) {
   return response.json();
 }
 
-export async function getUserRequests(userId: string) {
-  const response = await fetch(`${API_URL}/api/requests?userId=${userId}`);
+export async function getUserRequests(userId: string | number) {
+  const uid = typeof userId === 'string' ? userId : String(userId);
+  const response = await fetch(`${API_URL}/api/requests?userId=${uid}`);
   if (!response.ok) throw new Error('Failed to fetch requests');
   return response.json();
 }
 
-export async function createRequest(data: any) {
+export async function createRequest(requestData: Partial<InvestmentRequest> | { id: string; [key: string]: unknown }): Promise<InvestmentRequest> {
+  const payload = requestData;
   const response = await fetch(`${API_URL}/api/requests`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body: JSON.stringify(payload),
   });
   if (!response.ok) throw new Error('Failed to create request');
   return response.json();
@@ -65,7 +69,7 @@ export async function getProduct(productId: string) {
   return response.json();
 }
 
-export async function updateUser(userId: string, data: any) {
+export async function updateUser(userId: string, data: Partial<User>): Promise<User> {
   const response = await fetch(`${API_URL}/api/users/${userId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -75,7 +79,7 @@ export async function updateUser(userId: string, data: any) {
   return response.json();
 }
 
-export async function createUser(data: any) {
+export async function createUser(data: Partial<Omit<User, 'id'>>): Promise<User> {
   const response = await fetch(`${API_URL}/api/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -85,7 +89,7 @@ export async function createUser(data: any) {
   return response.json();
 }
 
-export async function createProduct(data: any) {
+export async function createProduct(data: Partial<Omit<Product, 'id'>>): Promise<Product> {
   const response = await fetch(`${API_URL}/api/products`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -95,7 +99,7 @@ export async function createProduct(data: any) {
   return response.json();
 }
 
-export async function updateProduct(productId: string, data: any) {
+export async function updateProduct(productId: string, data: Partial<Product>): Promise<Product> {
   const response = await fetch(`${API_URL}/api/products/${productId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
@@ -105,7 +109,7 @@ export async function updateProduct(productId: string, data: any) {
   return response.json();
 }
 
-export async function updateRequest(requestId: string, data: any) {
+export async function updateRequest(requestId: string, data: Partial<InvestmentRequest>): Promise<InvestmentRequest> {
   const response = await fetch(`${API_URL}/api/requests/${requestId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },

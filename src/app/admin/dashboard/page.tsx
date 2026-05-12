@@ -26,7 +26,7 @@ export default function AdminDashboard() {
 
         // Load all users
         const allUsers = await getAllUsers();
-        setUsers(allUsers.filter((u) => u.role === 'client'));
+        setUsers((allUsers as User[]).filter((u: User) => u.role === 'client'));
 
         // Load all requests
         const allRequests = await getAllRequests();

@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import { AdminGuard } from './AdminGuard';
 import { Menu, X, LogOut, Bell, LayoutDashboard, Users, Package, Grid, DollarSign, Send, FileText, MessageSquare } from 'lucide-react';
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { user, logout } = useAuth();
+  const { user, logout, isAuthenticated } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -30,8 +31,10 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     { href: '/admin/notifications', label: 'Notifications', icon: MessageSquare },
   ];
 
+  // Wrap with AdminGuard to ensure only admins can see this layout
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100">
+    <AdminGuard>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-50 to-slate-100">
       {/* Top Navigation Bar - Premium styling */}
       <nav className="sticky top-0 z-40 glass border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,6 +146,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12 animate-fadeIn">
         {children}
       </main>
-    </div>
+      </div>
+    </AdminGuard>
   );
 }

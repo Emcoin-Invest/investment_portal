@@ -23,16 +23,16 @@ export default function ClientPortfolio() {
         setLoading(true);
         setError(null);
 
-        const userPositions = await getUserPortfolioPositions(user.id);
+        const userPositions = await getUserPortfolioPositions(String(user.id));
         setPositions(userPositions);
 
-        const allProducts = await getAllProducts();
-        const productMap = new Map(allProducts.map((p) => [p.id, p]));
+        const allProducts = (await getAllProducts()) as Product[];
+        const productMap = new Map<string, Product>(allProducts.map((product) => [product.id, product]));
         setProducts(productMap);
 
         const pricesMap = new Map<string, Price>();
         for (const position of userPositions) {
-          const price = await getLatestPrice(position.productId);
+          const price = (await getLatestPrice(position.productId)) as Price | null;
           if (price) {
             pricesMap.set(position.productId, price);
           }
@@ -109,7 +109,9 @@ export default function ClientPortfolio() {
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }: { name: string; percent?: number }) =>
+                      `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
+                    }
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
@@ -118,7 +120,7 @@ export default function ClientPortfolio() {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value: any) => `$${typeof value === 'number' ? value.toFixed(2) : value}`} />
+                  <Tooltip formatter={(value: unknown) => `$${typeof value === 'number' ? value.toFixed(2) : value}`} />
                 </PieChart>
               </ResponsiveContainer>
             </div>

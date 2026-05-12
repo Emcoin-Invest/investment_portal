@@ -55,8 +55,7 @@ export default function AdminProducts() {
         });
       } else {
         // Create new product
-        const productId = nanoid();
-        await createProduct(productId, {
+        await createProduct({
           name: formData.name,
           type: formData.type,
           pricingMode: formData.pricingMode,

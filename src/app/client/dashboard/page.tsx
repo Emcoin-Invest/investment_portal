@@ -50,14 +50,14 @@ export default function ClientDashboard() {
         // Load portfolio positions
         const posResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/portfolio?userId=${user.id}`);
         if (!posResponse.ok) throw new Error('Failed to load portfolio');
-        const userPositions = await posResponse.json();
+        const userPositions = (await posResponse.json()) as PortfolioPosition[];
         setPositions(userPositions);
 
         // Load products
         const prodResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
         if (!prodResponse.ok) throw new Error('Failed to load products');
-        const allProducts = await prodResponse.json();
-        const productMap = new Map(allProducts.map((p: Product) => [p.id, p]));
+        const allProducts = (await prodResponse.json()) as Product[];
+        const productMap = new Map<string, Product>(allProducts.map((product) => [product.id, product]));
         setProducts(productMap);
 
         // Load latest prices
@@ -65,7 +65,7 @@ export default function ClientDashboard() {
         for (const position of userPositions) {
           const priceResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/prices/latest?productId=${position.productId}`);
           if (priceResponse.ok) {
-            const price = await priceResponse.json();
+            const price = (await priceResponse.json()) as Price;
             pricesMap.set(position.productId, price);
           }
         }
